@@ -28,6 +28,7 @@ import { CityStationSelectorModal } from '../components/CityStationSelectorModal
 import { LiveTrainBoardModal } from '../components/LiveTrainBoardModal';
 import { BoardingSureModal } from '../components/BoardingSureModal';
 import { SpatialArVrModal } from '../components/SpatialArVrModal';
+import { AppDownloadModal } from '../components/AppDownloadModal';
 import { ArrivalSummaryModal } from '../components/ArrivalSummaryModal';
 import { useBoardingSureStore } from '../store/boardingSureStore';
 import { AnimatedTrainTrackBackground } from '../components/AnimatedTrainTrackBackground';
@@ -77,6 +78,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   const [liveBoardModalVisible, setLiveBoardModalVisible] = useState(false);
   const [boardingSureModalVisible, setBoardingSureModalVisible] = useState(false);
   const [arVrModalVisible, setArVrModalVisible] = useState(false);
+  const [downloadModalVisible, setDownloadModalVisible] = useState(false);
   const [tappedEntity, setTappedEntity] = useState<TappedEntity | null>(null);
   const [selectedMapLevel, setSelectedMapLevel] = useState<number | 'all'>('all');
 
@@ -714,6 +716,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 </View>
 
                 <TouchableOpacity
+                  style={styles.headerDownloadBtn}
+                  onPress={() => setDownloadModalVisible(true)}
+                  activeOpacity={0.8}
+                >
+                  <Text style={styles.headerDownloadBtnText}>📥 Install App</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
                   style={styles.alertActionBtn}
                   onPress={() => setTruthModalVisible(true)}
                   activeOpacity={0.8}
@@ -880,6 +890,37 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             </TouchableOpacity>
 
             {/* SMART SPATIAL ACTIONS ROW: COACH NAVIGATION & TRUTH ENGINE */}
+            {/* DOWNLOAD MOBILE APP CALL-TO-ACTION CARD */}
+            <TouchableOpacity
+              style={styles.downloadMobileAppCard}
+              onPress={() => setDownloadModalVisible(true)}
+              activeOpacity={0.85}
+            >
+              <View style={styles.downloadMobileAppInner}>
+                <View style={styles.downloadIconCol}>
+                  <Text style={{ fontSize: 24 }}>📲</Text>
+                </View>
+                <View style={{ flex: 1, marginLeft: 10 }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                    <Text style={styles.downloadMobileAppTitle}>
+                      {language === 'kn' ? 'ಮೊಬೈಲ್ ಆ್ಯಪ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ' : (language === 'hi' ? 'टर्न वाइज मोबाइल ऐप डाउनलोड करें' : 'Download Turn Wise Mobile App')}
+                    </Text>
+                    <View style={styles.downloadMobileAppBadge}>
+                      <Text style={styles.downloadMobileAppBadgeText}>APK / PWA</Text>
+                    </View>
+                  </View>
+                  <Text style={styles.downloadMobileAppSub}>
+                    {language === 'kn'
+                      ? 'ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ಸ್ಥಾಪಿಸಿ • ಆಂಡ್ರಾಯ್ಡ್ APK & ಐಫೋನ್ ಬೆಂಬಲ'
+                      : (language === 'hi'
+                        ? 'फोन में इंस्टॉल करें • एंड्रॉइड APK एवं आईफोन सपोर्ट'
+                        : 'Install on your phone • Direct Android APK & 1-tap iPhone install')}
+                  </Text>
+                </View>
+                <Text style={styles.downloadMobileAppArrow}>➔</Text>
+              </View>
+            </TouchableOpacity>
+
             <View style={styles.smartActionsRow}>
               <TouchableOpacity
                 style={styles.smartActionCard}
@@ -1435,6 +1476,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         visible={arVrModalVisible}
         onClose={() => setArVrModalVisible(false)}
       />
+      <AppDownloadModal
+        visible={downloadModalVisible}
+        onClose={() => setDownloadModalVisible(false)}
+      />
     </SafeAreaView>
   );
 };
@@ -1665,6 +1710,74 @@ const styles = StyleSheet.create({
     marginTop: 2
   },
   liveBoardArrow: {
+    color: '#10B981',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 8
+  },
+  headerDownloadBtn: {
+    backgroundColor: '#165B33',
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#10B981',
+    marginRight: 6
+  },
+  headerDownloadBtnText: {
+    color: '#FFFFFF',
+    fontSize: 10,
+    fontWeight: '800'
+  },
+  downloadMobileAppCard: {
+    backgroundColor: '#0F172A',
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 12,
+    borderWidth: 1.5,
+    borderColor: '#10B981',
+    shadowColor: '#10B981',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 4
+  },
+  downloadMobileAppInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8
+  },
+  downloadIconCol: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: 'rgba(16, 185, 129, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  downloadMobileAppTitle: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '800'
+  },
+  downloadMobileAppBadge: {
+    backgroundColor: '#10B981',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4
+  },
+  downloadMobileAppBadgeText: {
+    color: '#0F172A',
+    fontSize: 9,
+    fontWeight: '800',
+    letterSpacing: 0.5
+  },
+  downloadMobileAppSub: {
+    color: '#94A3B8',
+    fontSize: 11,
+    marginTop: 2
+  },
+  downloadMobileAppArrow: {
     color: '#10B981',
     fontSize: 16,
     fontWeight: 'bold',

@@ -9,6 +9,7 @@ import {
   ScrollView
 } from 'react-native';
 import { Colors, Shadows, Radii } from '../theme/tokens';
+import { AppDownloadModal } from './AppDownloadModal';
 
 export type DevicePreset = 'iphone15' | 'pixel8' | 'compact';
 export type ViewMode = 'mobile' | 'desktop';
@@ -51,6 +52,7 @@ export interface MobileFrameContextType {
   toggleViewMode: () => void;
   devicePreset: DevicePreset;
   setDevicePreset: (preset: DevicePreset) => void;
+  openDownloadModal: () => void;
 }
 
 export const MobileFrameContext = React.createContext<MobileFrameContextType>({
@@ -58,7 +60,8 @@ export const MobileFrameContext = React.createContext<MobileFrameContextType>({
   viewMode: 'mobile',
   toggleViewMode: () => {},
   devicePreset: 'iphone15',
-  setDevicePreset: () => {}
+  setDevicePreset: () => {},
+  openDownloadModal: () => {}
 });
 
 interface MobileDeviceFrameProps {
@@ -72,6 +75,7 @@ export const MobileDeviceFrame: React.FC<MobileDeviceFrameProps> = ({ children }
   const [viewMode, setViewMode] = useState<ViewMode>('mobile');
   const [devicePreset, setDevicePreset] = useState<DevicePreset>('iphone15');
   const [currentTime, setCurrentTime] = useState<string>('9:41 AM');
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
   // Update clock every 30s
   useEffect(() => {
@@ -102,12 +106,21 @@ export const MobileDeviceFrame: React.FC<MobileDeviceFrameProps> = ({ children }
           viewMode,
           toggleViewMode: () => setViewMode(viewMode === 'mobile' ? 'desktop' : 'mobile'),
           devicePreset,
-          setDevicePreset
+          setDevicePreset,
+          openDownloadModal: () => setIsDownloadModalOpen(true)
         }}
       >
         <View style={styles.nativeContainer}>
           {!isPhysicalMobile && (
             <View style={styles.desktopFloatingToggle}>
+              <TouchableOpacity
+                style={[styles.floatingPillBtn, { backgroundColor: '#165B33', borderColor: '#10B981', marginBottom: 8 }]}
+                onPress={() => setIsDownloadModalOpen(true)}
+                activeOpacity={0.85}
+              >
+                <Text style={styles.floatingPillText}>📥 Download Mobile App</Text>
+              </TouchableOpacity>
+
               <TouchableOpacity
                 style={styles.floatingPillBtn}
                 onPress={() => setViewMode('mobile')}
@@ -118,6 +131,7 @@ export const MobileDeviceFrame: React.FC<MobileDeviceFrameProps> = ({ children }
             </View>
           )}
           {children}
+          <AppDownloadModal visible={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
         </View>
       </MobileFrameContext.Provider>
     );
@@ -135,7 +149,8 @@ export const MobileDeviceFrame: React.FC<MobileDeviceFrameProps> = ({ children }
         viewMode,
         toggleViewMode: () => setViewMode(viewMode === 'mobile' ? 'desktop' : 'mobile'),
         devicePreset,
-        setDevicePreset
+        setDevicePreset,
+        openDownloadModal: () => setIsDownloadModalOpen(true)
       }}
     >
       <View style={styles.outerStage}>
@@ -165,6 +180,14 @@ export const MobileDeviceFrame: React.FC<MobileDeviceFrameProps> = ({ children }
           </View>
 
           <View style={styles.toolbarRight}>
+            <TouchableOpacity
+              style={styles.downloadToolbarBtn}
+              onPress={() => setIsDownloadModalOpen(true)}
+              activeOpacity={0.85}
+            >
+              <Text style={styles.downloadToolbarBtnText}>📥 Download App</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity
               style={styles.switchModeBtn}
               onPress={() => setViewMode('desktop')}
@@ -251,6 +274,7 @@ export const MobileDeviceFrame: React.FC<MobileDeviceFrameProps> = ({ children }
             </View>
           </View>
         </View>
+        <AppDownloadModal visible={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
       </View>
     </MobileFrameContext.Provider>
   );
@@ -360,6 +384,21 @@ const styles = StyleSheet.create({
   toolbarRight: {
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  downloadToolbarBtn: {
+    backgroundColor: '#165B33',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#10B981',
+    marginRight: 8,
+    ...Shadows.sm
+  },
+  downloadToolbarBtnText: {
+    color: '#FFFFFF',
+    fontSize: 11,
+    fontWeight: '800'
   },
   switchModeBtn: {
     backgroundColor: '#1E293B',
