@@ -30,6 +30,7 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
   const [activeTab, setActiveTab] = useState<InstallTab>('instant');
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [installSuccess, setInstallSuccess] = useState<boolean>(false);
+  const [showManualGuide, setShowManualGuide] = useState<boolean>(false);
 
   // Capture native browser PWA install prompt
   useEffect(() => {
@@ -46,24 +47,28 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
-      deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      if (outcome === 'accepted') {
-        setInstallSuccess(true);
+      try {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          setInstallSuccess(true);
+        }
+        setDeferredPrompt(null);
+      } catch (err) {
+        setShowManualGuide(true);
       }
-      setDeferredPrompt(null);
     } else {
-      // Fallback instructions if native prompt isn't supported or already installed
-      setActiveTab('instant');
+      setShowManualGuide(true);
     }
   };
 
   const handleDownloadApk = () => {
-    const apkUrl = 'https://github.com/SVreformer/Turn-Wise/releases/download/v1.0.0/TurnWise-v1.0.0.apk';
+    // Official GitHub Releases portal where v1.0.0 and APK builds reside (verified HTTP 200)
+    const releaseUrl = 'https://github.com/SVreformer/Turn-Wise/releases/tag/v1.0.0';
     if (Platform.OS === 'web' && typeof window !== 'undefined') {
-      window.open(apkUrl, '_blank');
+      window.open(releaseUrl, '_blank');
     } else {
-      Linking.openURL(apkUrl).catch(() => {});
+      Linking.openURL(releaseUrl).catch(() => {});
     }
   };
 
@@ -155,45 +160,57 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                   </View>
                 </View>
 
-                {deferredPrompt ? (
-                  <TouchableOpacity
-                    style={styles.primaryActionBtn}
-                    onPress={handleInstallClick}
-                    activeOpacity={0.85}
-                  >
-                    <Text style={styles.primaryActionBtnText}>
-                      📲 Click to Install Turn Wise on This Device
+                <TouchableOpacity
+                  style={[styles.primaryActionBtn, { backgroundColor: '#165B33' }]}
+                  onPress={handleInstallClick}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.primaryActionBtnText}>
+                    {deferredPrompt
+                      ? '📲 Install Turn Wise on This Device (1-Tap)'
+                      : '📲 Install Turn Wise on Phone / Desktop'}
+                  </Text>
+                </TouchableOpacity>
+
+                {installSuccess && (
+                  <View style={{ backgroundColor: '#DCFCE7', padding: 12, borderRadius: 10, borderWidth: 1, borderColor: '#86EFAC', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 13, fontWeight: '800', color: '#166534', textAlign: 'center' }}>
+                      ✅ Installation initiated! Check your phone home screen or app drawer.
                     </Text>
-                  </TouchableOpacity>
-                ) : (
-                  <View style={styles.stepsCard}>
-                    <Text style={styles.stepsCardTitle}>How to Install in 3 Seconds:</Text>
-                    <View style={styles.stepItem}>
-                      <View style={styles.stepNum}>
-                        <Text style={styles.stepNumText}>1</Text>
-                      </View>
-                      <Text style={styles.stepText}>
-                        On your Android phone, tap the <Text style={{ fontWeight: '800' }}>three dots (⋮)</Text> menu in the top right corner of Chrome.
-                      </Text>
-                    </View>
-                    <View style={styles.stepItem}>
-                      <View style={styles.stepNum}>
-                        <Text style={styles.stepNumText}>2</Text>
-                      </View>
-                      <Text style={styles.stepText}>
-                        Tap <Text style={{ fontWeight: '800', color: Colors.forestPrimary }}>"Install app"</Text> or <Text style={{ fontWeight: '800' }}>"Add to Home screen"</Text>.
-                      </Text>
-                    </View>
-                    <View style={styles.stepItem}>
-                      <View style={styles.stepNum}>
-                        <Text style={styles.stepNumText}>3</Text>
-                      </View>
-                      <Text style={styles.stepText}>
-                        Tap <Text style={{ fontWeight: '800' }}>Install</Text>. The Turn Wise app icon will appear on your home screen and open in full-screen native mode!
-                      </Text>
-                    </View>
                   </View>
                 )}
+
+                <View style={styles.stepsCard}>
+                  <Text style={styles.stepsCardTitle}>
+                    {showManualGuide
+                      ? '⚡ Easy 3-Second Browser Install Guide:'
+                      : 'How to Install on Mobile in 3 Seconds:'}
+                  </Text>
+                  <View style={styles.stepItem}>
+                    <View style={styles.stepNum}>
+                      <Text style={styles.stepNumText}>1</Text>
+                    </View>
+                    <Text style={styles.stepText}>
+                      On your Android phone, tap the <Text style={{ fontWeight: '800' }}>three dots (⋮)</Text> menu in the top right corner of Chrome.
+                    </Text>
+                  </View>
+                  <View style={styles.stepItem}>
+                    <View style={styles.stepNum}>
+                      <Text style={styles.stepNumText}>2</Text>
+                    </View>
+                    <Text style={styles.stepText}>
+                      Tap <Text style={{ fontWeight: '800', color: Colors.forestPrimary }}>"Install app"</Text> or <Text style={{ fontWeight: '800' }}>"Add to Home screen"</Text>.
+                    </Text>
+                  </View>
+                  <View style={styles.stepItem}>
+                    <View style={styles.stepNum}>
+                      <Text style={styles.stepNumText}>3</Text>
+                    </View>
+                    <Text style={styles.stepText}>
+                      Tap <Text style={{ fontWeight: '800' }}>Install</Text>. The Turn Wise app icon will appear on your home screen and open in full-screen native mode!
+                    </Text>
+                  </View>
+                </View>
 
                 {/* QR Code for PC Viewers */}
                 <View style={styles.qrSection}>
@@ -217,12 +234,29 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                     <Text style={{ fontSize: 32 }}>🤖</Text>
                   </View>
                   <View style={{ flex: 1, marginLeft: 12 }}>
-                    <Text style={[styles.highlightTitle, { color: '#166534' }]}>Standalone Android APK Package</Text>
+                    <Text style={[styles.highlightTitle, { color: '#166534' }]}>Official Android Release v1.0.0</Text>
                     <Text style={[styles.highlightDesc, { color: '#15803D' }]}>
-                      Direct binary installer (`.apk`) for physical Android devices. Includes complete offline KSR CAD maps, BoardingSure, and sensory dead reckoning.
+                      Standalone binary package for physical Android devices. Includes complete offline KSR CAD maps, BoardingSure, and sensory dead reckoning.
                     </Text>
                   </View>
                 </View>
+
+                {/* Instant install recommendation */}
+                <TouchableOpacity
+                  style={{ backgroundColor: '#FEF3C7', padding: 12, borderRadius: 10, borderWidth: 1, borderColor: '#FCD34D', flexDirection: 'row', alignItems: 'center' }}
+                  onPress={() => setActiveTab('instant')}
+                  activeOpacity={0.8}
+                >
+                  <Text style={{ fontSize: 20, marginRight: 8 }}>💡</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={{ fontSize: 12, fontWeight: '800', color: '#92400E' }}>
+                      Recommended: 1-Tap Instant Install is Faster
+                    </Text>
+                    <Text style={{ fontSize: 11, color: '#B45309' }}>
+                      No APK download or security warning required. Tap here to switch to Instant Install.
+                    </Text>
+                  </View>
+                </TouchableOpacity>
 
                 <TouchableOpacity
                   style={[styles.primaryActionBtn, { backgroundColor: '#165B33' }]}
@@ -230,7 +264,7 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                   activeOpacity={0.85}
                 >
                   <Text style={styles.primaryActionBtnText}>
-                    📥 Download TurnWise-v1.0.0.apk (Direct File)
+                    📥 Open Official GitHub Release v1.0.0 (APK Package)
                   </Text>
                 </TouchableOpacity>
 
@@ -241,7 +275,7 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                       <Text style={styles.stepNumText}>1</Text>
                     </View>
                     <Text style={styles.stepText}>
-                      Tap the download button above or open the download link on your Android device.
+                      Tap the button above to open the official Turn Wise GitHub Release v1.0.0.
                     </Text>
                   </View>
                   <View style={styles.stepItem}>
@@ -249,7 +283,7 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                       <Text style={styles.stepNumText}>2</Text>
                     </View>
                     <Text style={styles.stepText}>
-                      When downloaded, tap the notification or open your phone's <Text style={{ fontWeight: '800' }}>Downloads</Text> folder.
+                      Download the APK file onto your Android device.
                     </Text>
                   </View>
                   <View style={styles.stepItem}>
@@ -628,3 +662,4 @@ const styles = StyleSheet.create({
     color: '#475569'
   }
 });
+
