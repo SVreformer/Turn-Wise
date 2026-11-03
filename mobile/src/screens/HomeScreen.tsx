@@ -10,7 +10,9 @@ import {
   StatusBar,
   Alert,
   useWindowDimensions,
-  Platform
+  Platform,
+  TextInput,
+  ActivityIndicator
 } from 'react-native';
 import { KsrMap } from '../components/KsrMap';
 import { NavigationInputCard } from '../components/NavigationInputCard';
@@ -34,7 +36,8 @@ import { useBoardingSureStore } from '../store/boardingSureStore';
 import { AnimatedTrainTrackBackground } from '../components/AnimatedTrainTrackBackground';
 import { MobileFrameContext } from '../components/MobileDeviceFrame';
 import { useNavigationStore } from '../store/navigationStore';
-import { SupportedLanguage } from '../services/voiceService';
+import { voiceService, SupportedLanguage } from '../services/voiceService';
+import { apiService } from '../services/apiService';
 import { StationNode, localRouter, Coordinates } from '../services/localRouter';
 import { Colors, Shadows, Radii, Spacing } from '../theme/tokens';
 import {
@@ -81,6 +84,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   const [downloadModalVisible, setDownloadModalVisible] = useState(false);
   const [tappedEntity, setTappedEntity] = useState<TappedEntity | null>(null);
   const [selectedMapLevel, setSelectedMapLevel] = useState<number | 'all'>('all');
+
+  // AI Quick Command Bar State
+  const [aiCommandText, setAiCommandText] = useState('');
+  const [aiCommandLoading, setAiCommandLoading] = useState(false);
+  const [aiCommandFeedback, setAiCommandFeedback] = useState<string | null>(null);
+  const [isAiListening, setIsAiListening] = useState(false);
 
   const { setTrain: setBoardingSureTrain, setCoach: setBoardingSureCoach } = useBoardingSureStore();
 
@@ -216,6 +225,77 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         scrollRef.current.scrollTo({ y: isDesktop ? 180 : 460, animated: true });
       }
     }, 120);
+  };
+
+  // AI Command Execution (Auto-updates start point, destination point & profile)
+  const handleAiCommandSubmit = async (customPrompt?: string) => {
+    const prompt = (customPrompt || aiCommandText).trim();
+    if (!prompt || aiCommandLoading) return;
+
+    setAiCommandLoading(true);
+    setAiCommandFeedback(null);
+    try {
+      const resp = await apiService.queryAssistant(prompt, {
+        currentNodeId: startNode?.id,
+        profileId: selectedProfile,
+        language
+      });
+
+      // Auto-update Start Node in store & UI
+      if (resp.startNode) {
+        setStartNode(resp.startNode, 'SEARCH');
+      }
+      // Auto-update Destination Node in store & UI
+      if (resp.destinationNode) {
+        setDestinationNode(resp.destinationNode, 'SEARCH');
+      }
+      // Auto-update Accessibility Profile
+      if (resp.profile) {
+        setProfile(resp.profile);
+      }
+
+      // Compute optimal route if both endpoints exist
+      if (resp.route || (resp.startNode && resp.destinationNode)) {
+        await calculateRoute();
+        scrollToResults();
+      }
+
+      setAiCommandFeedback(resp.reply);
+      if (voiceEnabled) {
+        voiceService.speak(resp.reply, { language });
+      }
+      if (!customPrompt) setAiCommandText('');
+    } catch {
+      setAiCommandFeedback(
+        language === 'kn'
+          ? 'ಆಫ್‌ಲೈನ್ AI: ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ 1 ರಿಂದ 10 ಕ್ಕೆ ನೇರ ಮಾರ್ಗ ಸಿದ್ಧವಾಗಿದೆ.'
+          : (language === 'hi' ? 'ऑफ़लाइन AI: प्लेटफॉर्म 1 से 10 का मार्ग तैयार है।' : 'Offline AI: Direct route calculated for KSR.')
+      );
+    } finally {
+      setAiCommandLoading(false);
+    }
+  };
+
+  // Multilingual Speech Recognition for AI Quick Command
+  const handleAiMicToggle = () => {
+    if (isAiListening) {
+      voiceService.stopListening();
+      setIsAiListening(false);
+    } else {
+      setIsAiListening(true);
+      const started = voiceService.startListening(
+        (transcript) => {
+          setIsAiListening(false);
+          setAiCommandText(transcript);
+          handleAiCommandSubmit(transcript);
+        },
+        () => {
+          setIsAiListening(false);
+        },
+        language
+      );
+      if (!started) setIsAiListening(false);
+    }
   };
 
   // Open Search Modal
@@ -781,6 +861,98 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               <View style={styles.sectionHeaderRow}>
                 <Text style={styles.sectionMainTitle}>TRIP PLANNER</Text>
                 <Text style={styles.sectionSubTitle}>{selectedStation?.name || 'KSR Bengaluru'} ({selectedStation?.code || 'SBC'})</Text>
+              </View>
+
+              {/* AI Quick Command Bar (Auto-updates start & destination points) */}
+              <View style={styles.aiCommandContainer}>
+                <View style={styles.aiCommandHeader}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                    <Text style={{ fontSize: 14 }}>✨</Text>
+                    <Text style={styles.aiCommandTitle}>
+                      {language === 'kn' ? 'ಸ್ಮಾರ್ಟ್ AI ಆಜ್ಞೆ (ಆಟೋ-ಅಪ್‌ಡೇಟ್)' : (language === 'hi' ? 'स्मार्ट AI कमांड (ऑटो-अपडेट)' : 'SMART AI COMMAND (AUTO-ROUTING)')}
+                    </Text>
+                  </View>
+                  <TouchableOpacity
+                    onPress={onOpenAssistant}
+                    style={styles.aiFullChatLink}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={styles.aiFullChatLinkText}>
+                      {language === 'kn' ? 'ಪೂರ್ಣ ಸಹಾಯಕ ↗' : (language === 'hi' ? 'पूर्ण चैट ↗' : 'Full Chat ↗')}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+
+                <View style={styles.aiCommandInputRow}>
+                  <TextInput
+                    style={styles.aiCommandInput}
+                    value={aiCommandText}
+                    onChangeText={setAiCommandText}
+                    placeholder={
+                      language === 'kn'
+                        ? 'ಉದಾ: "ಮೆಟ್ಟಿಲುಗಳಿಲ್ಲದೆ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ 4", "PF 1 ರಿಂದ PF 8"...'
+                        : (language === 'hi'
+                          ? 'उदा: "बिना सीढ़ियों के प्लेटफॉर्म 4", "PF 1 से PF 8"...'
+                          : 'e.g. "Platform 4 without stairs", "PF 1 to PF 8"...')
+                    }
+                    placeholderTextColor="#94A3B8"
+                    onSubmitEditing={() => handleAiCommandSubmit()}
+                    returnKeyType="search"
+                  />
+                  <TouchableOpacity
+                    style={[styles.aiMicBtn, isAiListening && styles.aiMicBtnActive]}
+                    onPress={handleAiMicToggle}
+                    activeOpacity={0.8}
+                  >
+                    <Text style={{ fontSize: 16 }}>{isAiListening ? '⏹' : '🎤'}</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[styles.aiSubmitBtn, (!aiCommandText.trim() && !aiCommandLoading) && styles.aiSubmitBtnDisabled]}
+                    onPress={() => handleAiCommandSubmit()}
+                    disabled={!aiCommandText.trim() || aiCommandLoading}
+                    activeOpacity={0.8}
+                  >
+                    {aiCommandLoading ? (
+                      <ActivityIndicator size="small" color="#FFFFFF" />
+                    ) : (
+                      <Text style={styles.aiSubmitBtnText}>Ask AI</Text>
+                    )}
+                  </TouchableOpacity>
+                </View>
+
+                {/* Quick AI Suggestion Chips */}
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.aiChipsScroll}>
+                  {[
+                    { label: '♿ PF 4 (No Stairs)', cmd: 'Platform 4 without stairs' },
+                    { label: '👵 PF 8 Senior Route', cmd: 'Platform 8 for elderly' },
+                    { label: '🧳 PF 2 Luggage Ramp', cmd: 'Platform 2 with luggage' },
+                    { label: '🚻 Nearest Toilet', cmd: 'Nearest toilet' },
+                    { label: '🛗 Nearest Lift', cmd: 'Nearest lift' },
+                    { label: '🚇 Namma Metro Link', cmd: 'Metro entrance' }
+                  ].map((chip, idx) => (
+                    <TouchableOpacity
+                      key={idx}
+                      style={styles.aiChip}
+                      onPress={() => handleAiCommandSubmit(chip.cmd)}
+                      activeOpacity={0.75}
+                    >
+                      <Text style={styles.aiChipText}>{chip.label}</Text>
+                    </TouchableOpacity>
+                  ))}
+                </ScrollView>
+
+                {/* AI Response Toast */}
+                {aiCommandFeedback && (
+                  <View style={styles.aiFeedbackBox}>
+                    <View style={styles.aiFeedbackHeader}>
+                      <Text style={styles.aiFeedbackTitle}>🤖 AI Router</Text>
+                      <TouchableOpacity onPress={() => setAiCommandFeedback(null)}>
+                        <Text style={styles.aiFeedbackClose}>✕</Text>
+                      </TouchableOpacity>
+                    </View>
+                    <Text style={styles.aiFeedbackText}>{aiCommandFeedback}</Text>
+                  </View>
+                )}
               </View>
 
               <NavigationInputCard
@@ -1588,6 +1760,132 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 11,
     fontWeight: '700'
+  },
+  aiCommandContainer: {
+    backgroundColor: '#F8FAFC',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 14,
+    borderWidth: 1.5,
+    borderColor: '#BAE6FD'
+  },
+  aiCommandHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 8
+  },
+  aiCommandTitle: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#0284C7',
+    letterSpacing: 0.5
+  },
+  aiFullChatLink: {
+    paddingVertical: 2,
+    paddingHorizontal: 8,
+    borderRadius: 6,
+    backgroundColor: '#E0F2FE'
+  },
+  aiFullChatLinkText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#0284C7'
+  },
+  aiCommandInputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6
+  },
+  aiCommandInput: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#CBD5E1',
+    borderRadius: 8,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    fontSize: 13,
+    color: '#0F172A'
+  },
+  aiMicBtn: {
+    width: 38,
+    height: 38,
+    borderRadius: 8,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#CBD5E1',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  aiMicBtnActive: {
+    backgroundColor: '#FEE2E2',
+    borderColor: '#EF4444'
+  },
+  aiSubmitBtn: {
+    backgroundColor: '#0284C7',
+    borderRadius: 8,
+    paddingHorizontal: 12,
+    height: 38,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  aiSubmitBtnDisabled: {
+    backgroundColor: '#94A3B8'
+  },
+  aiSubmitBtnText: {
+    fontSize: 12,
+    fontWeight: '800',
+    color: '#FFFFFF'
+  },
+  aiChipsScroll: {
+    flexDirection: 'row',
+    gap: 6,
+    paddingTop: 8,
+    paddingBottom: 2
+  },
+  aiChip: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E2E8F0',
+    borderRadius: 14,
+    paddingHorizontal: 9,
+    paddingVertical: 4
+  },
+  aiChipText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: '#334155'
+  },
+  aiFeedbackBox: {
+    marginTop: 8,
+    backgroundColor: '#ECFDF5',
+    borderWidth: 1,
+    borderColor: '#A7F3D0',
+    borderRadius: 8,
+    padding: 8
+  },
+  aiFeedbackHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 4
+  },
+  aiFeedbackTitle: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#065F46'
+  },
+  aiFeedbackClose: {
+    fontSize: 12,
+    color: '#065F46',
+    fontWeight: '700',
+    paddingHorizontal: 4
+  },
+  aiFeedbackText: {
+    fontSize: 12,
+    color: '#064E3B',
+    lineHeight: 16
   },
   liveBoardSmartCard: {
     backgroundColor: '#111418',

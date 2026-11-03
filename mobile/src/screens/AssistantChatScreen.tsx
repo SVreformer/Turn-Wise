@@ -35,7 +35,17 @@ export const AssistantChatScreen: React.FC<AssistantChatScreenProps> = ({
   onBack,
   onStartRoute
 }) => {
-  const { startNode, selectedProfile, language, setLanguage, voiceEnabled } = useNavigationStore();
+  const {
+    startNode,
+    selectedProfile,
+    language,
+    setLanguage,
+    voiceEnabled,
+    setStartNode,
+    setDestinationNode,
+    setProfile,
+    calculateRoute
+  } = useNavigationStore();
   const [inputText, setInputText] = useState('');
   const [loading, setLoading] = useState(false);
   const [isRecording, setIsRecording] = useState(false);
@@ -95,6 +105,20 @@ export const AssistantChatScreen: React.FC<AssistantChatScreenProps> = ({
         profileId: selectedProfile,
         language
       });
+
+      // Auto-update starting point, destination, and accessibility profile in Store
+      if (resp.startNode) {
+        setStartNode(resp.startNode, 'SEARCH');
+      }
+      if (resp.destinationNode) {
+        setDestinationNode(resp.destinationNode, 'SEARCH');
+      }
+      if (resp.profile) {
+        setProfile(resp.profile);
+      }
+      if (resp.route) {
+        calculateRoute();
+      }
 
       const assistantMsg: Message = {
         id: `asst_${Date.now()}`,
@@ -292,13 +316,22 @@ export const AssistantChatScreen: React.FC<AssistantChatScreenProps> = ({
                         </View>
                       )}
 
-                      <TouchableOpacity
-                        style={styles.startNavBtn}
-                        onPress={() => onStartRoute(item.route!)}
-                        activeOpacity={0.85}
-                      >
-                        <Text style={styles.startNavBtnText}>▶ START NAVIGATION</Text>
-                      </TouchableOpacity>
+                      <View style={{ flexDirection: 'row', gap: 8, marginTop: 8 }}>
+                        <TouchableOpacity
+                          style={[styles.startNavBtn, { flex: 1, backgroundColor: '#0284C7' }]}
+                          onPress={() => onBack()}
+                          activeOpacity={0.85}
+                        >
+                          <Text style={styles.startNavBtnText}>🗺️ VIEW ON MAP</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          style={[styles.startNavBtn, { flex: 1 }]}
+                          onPress={() => onStartRoute(item.route!)}
+                          activeOpacity={0.85}
+                        >
+                          <Text style={styles.startNavBtnText}>▶ START NAV</Text>
+                        </TouchableOpacity>
+                      </View>
                     </View>
                   )}
 

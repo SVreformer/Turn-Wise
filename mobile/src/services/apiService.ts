@@ -10,27 +10,41 @@ import stationPlatformsData from '../data/realtime/station_platforms.json';
 import stationSchedulesData from '../data/realtime/station_schedules.json';
 import trainsBundle from '../data/realtime/trains_bundle.json';
 
+const IS_BROWSER_HTTPS = typeof window !== 'undefined' && window.location && window.location.protocol === 'https:';
 const ENV_BACKEND_URL = process.env.EXPO_PUBLIC_API_URL ? process.env.EXPO_PUBLIC_API_URL.replace(/\/+$/, '') : '';
 const CANDIDATE_URLS = [
   ENV_BACKEND_URL,
-  'http://localhost:3000',
-  'http://127.0.0.1:3000',
-  'http://10.0.2.2:3000'
+  ...(IS_BROWSER_HTTPS ? [] : ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://10.0.2.2:3000'])
 ].filter(Boolean) as string[];
 
+export interface AssistantResponse {
+  reply: string;
+  action?: string;
+  route?: RouteResult | null;
+  facility?: any;
+  language?: 'en' | 'kn' | 'hi';
+  startNode?: StationNode | null;
+  destinationNode?: StationNode | null;
+  profile?: string;
+}
+
 export class ApiService {
-  private isOnlineState: boolean = true;
-  private backendBaseUrl: string = ENV_BACKEND_URL || 'http://localhost:3000';
+  private isOnlineState: boolean = !IS_BROWSER_HTTPS || Boolean(ENV_BACKEND_URL && ENV_BACKEND_URL.startsWith('https:'));
+  private backendBaseUrl: string = ENV_BACKEND_URL || (IS_BROWSER_HTTPS ? '' : 'http://localhost:3000');
 
   constructor() {
     this.checkConnectivity();
   }
 
   public async checkConnectivity(): Promise<boolean> {
+    if (CANDIDATE_URLS.length === 0) {
+      this.isOnlineState = false;
+      return false;
+    }
     for (const url of CANDIDATE_URLS) {
       try {
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 2000);
+        const timeoutId = setTimeout(() => controller.abort(), 1200);
         const res = await fetch(`${url}/health`, { signal: controller.signal });
         clearTimeout(timeoutId);
         if (res.ok) {
@@ -378,15 +392,27 @@ export class ApiService {
   public async queryAssistant(
     message: string,
     context: { currentNodeId?: string; profileId?: string; language?: 'en' | 'kn' | 'hi'; activeRoute?: any } = {}
-  ): Promise<{ reply: string; action?: string; route?: RouteResult | null; facility?: any; language?: 'en' | 'kn' | 'hi' }> {
-    if (this.isOnlineState) {
+  ): Promise<AssistantResponse> {
+    if (this.isOnlineState && this.backendBaseUrl) {
       try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 1200);
         const res = await fetch(`${this.backendBaseUrl}/api/assistant`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message, ...context })
+          body: JSON.stringify({ message, ...context }),
+          signal: controller.signal
         });
-        if (res.ok) return await res.json();
+        clearTimeout(timeoutId);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.route) {
+            data.startNode = data.route.start;
+            data.destinationNode = data.route.destination;
+            data.profile = data.route.profile || data.profile;
+          }
+          return data;
+        }
       } catch {}
     }
 
@@ -399,39 +425,56 @@ export class ApiService {
     // 1. Accessibility Profile detection
     if (
       q.includes('wheelchair') || q.includes('step-free') || q.includes('step free') ||
-      q.includes('no stairs') || q.includes('avoid stairs') ||
+      q.includes('no stairs') || q.includes('avoid stairs') || q.includes('without stairs') ||
       q.includes('ವ್ಹೀಲ್ಚೇರ್') || q.includes('ಮೆಟ್ಟಿಲುಗಳಿಲ್ಲದೆ') ||
       q.includes('व्हीलचेयर') || q.includes('बिना सीढ़ी') || q.includes('mobility') || q.includes('disabled')
     ) {
       profile = 'mobility_disabled';
-    } else if (q.includes('elderly') || q.includes('senior') || q.includes('ಹಿರಿಯ') || q.includes('ಬುಜುರ್ಗ್') || q.includes('बुजुर्ग')) {
+    } else if (q.includes('elderly') || q.includes('senior') || q.includes('old') || q.includes('ವೃದ್ಧ') || q.includes('ಹಿರಿಯ') || q.includes('ಬುಜುರ್ಗ್') || q.includes('बुजुर्ग')) {
       profile = 'elderly';
-    } else if (q.includes('blind') || q.includes('vision') || q.includes('ಅಂಧ') || q.includes('ದೃಷ್ಟಿ') || q.includes('दृष्टि') || q.includes('नेत्रहीन')) {
+    } else if (q.includes('blind') || q.includes('vision') || q.includes('tactile') || q.includes('ಅಂಧ') || q.includes('ದೃಷ್ಟಿ') || q.includes('दृष्टि') || q.includes('नेत्रहीन')) {
       profile = 'visually_impaired';
-    } else if (q.includes('luggage') || q.includes('baggage') || q.includes('bags') || q.includes('ಬ್ಯಾಗೇಜ್') || q.includes('ಸಾಮಾನು') || q.includes('सामान')) {
+    } else if (q.includes('luggage') || q.includes('baggage') || q.includes('bags') || q.includes('heavy') || q.includes('ಬ್ಯಾಗೇಜ್') || q.includes('ಸಾಮಾನು') || q.includes('सामान')) {
       profile = 'luggage_heavy';
+    } else if (q.includes('child') || q.includes('kid') || q.includes('family') || q.includes('ಮಗು') || q.includes('ಕುಟುಂಬ') || q.includes('बच्चा')) {
+      profile = 'child';
     }
 
     // 2. Parse "From X to Y" if present
     let effectiveStart = defaultStart;
     let overrideDestId: string | null = null;
     let overrideDestPf: number | null = null;
-    const fromToMatch = q.match(/(?:from|ಇಂದ|से)\s+(?:platform|pf|ಪ್ಲಾಟ್‌ಫಾರ್ಮ್|ಪ್ಲೇಟ್‌ಫಾರ್ಮ್|ಪ್ಲಾಟ್\s*ಫಾರ್ಮ್|प्लेटफॉर्म|प्लेटफार्म)\s*(\d{1,2})\s+(?:to|ಕಡೆಗೆ|ಗೆ|तक)\s+(?:platform|pf|ಪ್ಲಾಟ್‌ಫಾರ್ಮ್|ಪ್ಲೇಟ್‌ಫಾರ್ಮ್|ಪ್ಲಾಟ್\s*ಫಾರ್ಮ್|प्लेटफॉर्म|प्लेटफार्म)?\s*(\d{1,2})/i);
-    if (fromToMatch) {
-      const fromPf = parseInt(fromToMatch[1], 10);
-      const toPf = parseInt(fromToMatch[2], 10);
+
+    // A. Platform to Platform: e.g. "from pf 1 to pf 8", "pf 2 to pf 6", "pf 1 -> pf 4"
+    const fromToPfMatch = q.match(/(?:from|ಇಂದ|से)?\s*(?:platform|pf|ಪ್ಲಾಟ್‌ಫಾರ್ಮ್|ಪ್ಲೇಟ್‌ಫಾರ್ಮ್|ಪ್ಲಾಟ್\s*ಫಾರ್ಮ್|प्लेटफॉर्म|प्लेटफार्म)\s*(\d{1,2})\s*(?:to|ಕಡೆಗೆ|ಗೆ|तक|->|-)\s*(?:platform|pf|ಪ್ಲಾಟ್‌ಫಾರ್ಮ್|ಪ್ಲೇಟ್‌ಫಾರ್ಮ್|ಪ್ಲಾಟ್\s*ಫಾರ್ಮ್|प्लेटफॉर्म|प्लेटफार्म)?\s*(\d{1,2})/i);
+    if (fromToPfMatch) {
+      const fromPf = parseInt(fromToPfMatch[1], 10);
+      const toPf = parseInt(fromToPfMatch[2], 10);
       if (fromPf >= 1 && fromPf <= 10) effectiveStart = `node_pf${fromPf}_center`;
       if (toPf >= 1 && toPf <= 10) {
         overrideDestId = `node_pf${toPf}_center`;
         overrideDestPf = toPf;
       }
     } else {
-      const fromMatch = q.match(/(?:from|ಇಂದ|से)\s+(?:platform|pf|ಪ್ಲಾಟ್‌ಫಾರ್ಮ್|ಪ್ಲೇಟ್‌ಫಾರ್ಮ್|ಪ್ಲಾಟ್\s*ಫಾರ್ಮ್|प्लेटफॉर्म|प्लेटफार्म)\s*(\d{1,2})/i);
-      if (fromMatch) {
-        const fromPf = parseInt(fromMatch[1], 10);
-        if (fromPf >= 1 && fromPf <= 10) effectiveStart = `node_pf${fromPf}_center`;
-      } else if (q.includes('from entrance') || q.includes('from main gate') || q.includes('ಪ್ರವೇಶದಿಂದ') || q.includes('गेट से')) {
-        effectiveStart = 'node_entry_t1_main_east';
+      // B. Entrance / Gate / Terminal to Platform: e.g. "from main entrance to pf 4", "from entry to platform 8"
+      const fromEntranceMatch = q.match(/(?:from|ಇಂದ|से)\s+(?:main\s+entrance|entrance|entry|main\s+gate|gate|t1|terminal\s*1|t2|terminal\s*2|t3|terminal\s*3|metro)/i);
+      if (fromEntranceMatch) {
+        const entStr = fromEntranceMatch[0].toLowerCase();
+        if (entStr.includes('t2') || entStr.includes('terminal 2')) {
+          effectiveStart = 'node_entry_t2_east';
+        } else if (entStr.includes('t3') || entStr.includes('terminal 3') || entStr.includes('metro')) {
+          effectiveStart = 'node_entry_t3_metro';
+        } else {
+          effectiveStart = 'node_entry_t1_main_east';
+        }
+      } else {
+        const fromMatch = q.match(/(?:from|ಇಂದ|से)\s+(?:platform|pf|ಪ್ಲಾಟ್‌ಫಾರ್ಮ್|ಪ್ಲೇಟ್‌ಫಾರ್ಮ್|ಪ್ಲಾಟ್\s*ಫಾರ್ಮ್|प्लेटफॉर्म|प्लेटफार्म)\s*(\d{1,2})/i);
+        if (fromMatch) {
+          const fromPf = parseInt(fromMatch[1], 10);
+          if (fromPf >= 1 && fromPf <= 10) effectiveStart = `node_pf${fromPf}_center`;
+        } else if (q.includes('from entrance') || q.includes('from main gate') || q.includes('ಪ್ರವೇಶದಿಂದ') || q.includes('गेट से')) {
+          effectiveStart = 'node_entry_t1_main_east';
+        }
       }
     }
 
@@ -454,7 +497,10 @@ export class ApiService {
         reply,
         action: 'lost_passenger_rescue',
         route: rescueRoute,
-        language: lang
+        language: lang,
+        startNode: localRouter.getNode(effectiveStart) || null,
+        destinationNode: rescueTargetNode,
+        profile
       };
     }
 
@@ -496,7 +542,10 @@ export class ApiService {
           reply,
           action: 'find_coach_route',
           route: coachRoute,
-          language: lang
+          language: lang,
+          startNode: coachRoute.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: coachRoute.destination || null,
+          profile
         };
       }
     }
@@ -520,7 +569,10 @@ export class ApiService {
         reply,
         action: 'find_route',
         route,
-        language: lang
+        language: lang,
+        startNode: route?.start || localRouter.getNode(effectiveStart) || null,
+        destinationNode: route?.destination || localRouter.getNode(destNodeId) || null,
+        profile
       };
     }
 
@@ -564,7 +616,10 @@ export class ApiService {
             reply,
             action: 'find_route',
             route,
-            language: lang
+            language: lang,
+            startNode: route.start || localRouter.getNode(effectiveStart) || null,
+            destinationNode: route.destination || localRouter.getNode(targetDestNodeId) || null,
+            profile
           };
         }
       }
@@ -584,7 +639,10 @@ export class ApiService {
           action: 'find_facility',
           route: route ? { ...route, destination: destNode } : null,
           facility: cand,
-          language: lang
+          language: lang,
+          startNode: route?.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: destNode,
+          profile
         };
       }
     }
@@ -611,7 +669,10 @@ export class ApiService {
           action: 'find_facility',
           route: route ? { ...route, destination: destNode } : null,
           facility: cand,
-          language: lang
+          language: lang,
+          startNode: route?.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: destNode,
+          profile
         };
       }
     }
@@ -637,7 +698,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -658,7 +722,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -679,7 +746,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -704,7 +774,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -729,7 +802,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -754,7 +830,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -779,7 +858,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -805,7 +887,10 @@ export class ApiService {
           action: 'find_facility',
           route: res.route,
           facility: res.facility,
-          language: lang
+          language: lang,
+          startNode: res.route.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: res.route.destination || localRouter.getFacilityNode(res.facility) || null,
+          profile
         };
       }
     }
@@ -832,7 +917,10 @@ export class ApiService {
           action: 'find_facility',
           route: route ? { ...route, destination: destNode } : null,
           facility: { name: 'Terminal 1 Central Concourse' },
-          language: lang
+          language: lang,
+          startNode: route?.start || localRouter.getNode(effectiveStart) || null,
+          destinationNode: destNode,
+          profile
         };
       }
     }
@@ -843,7 +931,8 @@ export class ApiService {
         : (lang === 'hi'
           ? "मैं केएसआर बेंगलुरु स्टेशन के लिए टर्न वाइज (Turn Wise) एआई सहायक हूँ। किसी भी प्लेटफॉर्म (1-10), ट्रेन की जानकारी (उदा: 'कर्नाटक एक्सप्रेस'), कोच की स्थिति (उदा: 'कोच B4'), निकटतम लिफ्ट, रैंप या शौचालय के लिए मुझसे पूछें।"
           : "I am Turn Wise AI Assistant for KSR Bengaluru Station. Ask me for directions to any platform (1-10), train status (e.g. 'Karnataka Express'), coach location (e.g. 'Coach B4'), nearest lift, ramp, or accessible restroom."),
-      language: lang
+      language: lang,
+      profile
     };
   }
 

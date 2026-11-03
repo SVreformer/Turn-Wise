@@ -387,15 +387,26 @@ class LocalStationRouter {
     }
 
     if (pt === 'stairs') {
-      Pa = d * (weights.stairs - 1.0) * aFactor;
+      let obstacleBase = 0;
+      if (profileId === 'elderly') obstacleBase = 600;
+      else if (profileId === 'luggage_heavy') obstacleBase = 700;
+      else if (profileId === 'child') obstacleBase = 350;
+      else if (profileId === 'visually_impaired') obstacleBase = 450;
+
+      Pa = (d * (weights.stairs - 1.0) + obstacleBase) * aFactor;
     } else if (pt === 'escalator') {
-      Pa = d * (weights.escalator - 1.0) * aFactor;
+      let obstacleBase = 0;
+      if (profileId === 'luggage_heavy') obstacleBase = 300;
+      else if (profileId === 'elderly') obstacleBase = 150;
+      else if (profileId === 'visually_impaired') obstacleBase = 200;
+
+      Pa = (d * (weights.escalator - 1.0) + obstacleBase) * aFactor;
     } else if (pt === 'lift') {
-      const reduction = Math.max(0, 1.0 - weights.lift);
-      Pa = -d * reduction * aFactor;
+      const liftReward = (profileId === 'mobility_disabled' || profileId === 'elderly' || profileId === 'luggage_heavy') ? 80 : 20;
+      Pa = -liftReward * aFactor;
     } else if (pt === 'ramp') {
-      const reduction = Math.max(0, 1.0 - weights.ramp);
-      Pa = -d * reduction * aFactor;
+      const rampReward = (profileId === 'mobility_disabled' || profileId === 'elderly' || profileId === 'luggage_heavy') ? 30 : 0;
+      Pa = -rampReward * aFactor;
     }
 
     // Check facility blockage status
@@ -651,7 +662,18 @@ class LocalStationRouter {
     blockedList: string[]
   ): RouteResult {
     const totalDist = pathEdges.reduce((sum, e) => sum + e.distance, 0);
-    const totalTime = pathEdges.reduce((sum, e) => sum + e.estimatedTimeSeconds, 0);
+    // Profile-tailored walking speeds (m/s)
+    const profileSpeeds: Record<string, number> = {
+      first_time: 1.3,
+      mobility_disabled: 0.85,
+      elderly: 0.70,
+      luggage_heavy: 0.85,
+      child: 0.90,
+      visually_impaired: 0.75
+    };
+    const speed = profileSpeeds[profileId] || 1.1;
+    const totalTimeSeconds = Math.round(totalDist / speed);
+    const estimatedTimeMinutes = Math.max(1, Math.round(totalTimeSeconds / 60));
     const nodeSequence = [startNode.id, ...pathEdges.map((e) => e.to)];
 
     const steps: RouteStep[] = [];
@@ -721,7 +743,7 @@ class LocalStationRouter {
       destination: destNode,
       profile: profileId,
       totalDistanceMeters: Math.round(totalDist * 10) / 10,
-      estimatedTimeMinutes: Math.max(1, Math.round(totalTime / 60)),
+      estimatedTimeMinutes,
       nodeSequence,
       steps,
       pathGeometry,
