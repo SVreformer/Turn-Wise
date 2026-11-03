@@ -927,10 +927,10 @@ export class ApiService {
 
     return {
       reply: lang === 'kn'
-        ? "ನಾನು ಕೆಎಸ್ಆರ್ ಬೆಂಗಳೂರು ನಿಲ್ದಾಣದ ಅಧಿಕೃತ ಟರ್ನ್ ವೈಸ್ (Turn Wise) ಎಐ ಸಹಾಯಕ. ಯಾವುದೇ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ (1-10), ರೈಲು ವಿವರ (ಉದಾ: 'ಕರ್ನಾಟಕ ಎಕ್ಸ್‌ಪ್ರೆಸ್'), ಕೋಚ್ ವಿವರ (ಉದಾ: 'ಕೋಚ್ B4'), ಲಿಫ್ಟ್, ರಾಂಪ್ ಅಥವಾ ಶೌಚಾಲಯದ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ನನ್ನನ್ನು ಕೇಳಿ."
+        ? "ನಾನು ಕೆಎಸ್ಆರ್ ಬೆಂಗಳೂರು ನಿಲ್ದಾಣದ ಅಧಿಕೃತ ಟರ್ನ್‌ವೈಸ್ (TurnWise) ಎಐ ಸಹಾಯಕ. ಯಾವುದೇ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ (1-10), ರೈಲು ವಿವರ (ಉದಾ: 'ಕರ್ನಾಟಕ ಎಕ್ಸ್‌ಪ್ರೆಸ್'), ಕೋಚ್ ವಿವರ (ಉದಾ: 'ಕೋಚ್ B4'), ಲಿಫ್ಟ್, ರಾಂಪ್ ಅಥವಾ ಶೌಚಾಲಯದ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ನನ್ನನ್ನು ಕೇಳಿ."
         : (lang === 'hi'
-          ? "मैं केएसआर बेंगलुरु स्टेशन के लिए टर्न वाइज (Turn Wise) एआई सहायक हूँ। किसी भी प्लेटफॉर्म (1-10), ट्रेन की जानकारी (उदा: 'कर्नाटक एक्सप्रेस'), कोच की स्थिति (उदा: 'कोच B4'), निकटतम लिफ्ट, रैंप या शौचालय के लिए मुझसे पूछें।"
-          : "I am Turn Wise AI Assistant for KSR Bengaluru Station. Ask me for directions to any platform (1-10), train status (e.g. 'Karnataka Express'), coach location (e.g. 'Coach B4'), nearest lift, ramp, or accessible restroom."),
+          ? "मैं केएसआर बेंगलुरु स्टेशन के लिए टर्नवाइज़ (TurnWise) एआई सहायक हूँ। किसी भी प्लेटफॉर्म (1-10), ट्रेन की जानकारी (उदा: 'कर्नाटक एक्सप्रेस'), कोच की स्थिति (उदा: 'कोच B4'), निकटतम लिफ्ट, रैंप या शौचालय के लिए मुझसे पूछें।"
+          : "I am TurnWise AI Assistant for KSR Bengaluru Station. Ask me for directions to any platform (1-10), train status (e.g. 'Karnataka Express'), coach location (e.g. 'Coach B4'), nearest lift, ramp, or accessible restroom."),
       language: lang,
       profile
     };

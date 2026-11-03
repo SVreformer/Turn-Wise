@@ -82,21 +82,30 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
           {/* Header */}
           <View style={styles.header}>
             <View style={styles.headerLeft}>
-              <View style={styles.badgeRow}>
-                <View style={styles.appBadge}>
-                  <Text style={styles.appBadgeText}>📱 OFFICIAL MOBILE APP</Text>
-                </View>
-                <View style={styles.versionBadge}>
-                  <Text style={styles.versionBadgeText}>v1.0.0 RELEASE</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
+                <Image
+                  source={require('../../assets/logo.png')}
+                  style={{ width: 44, height: 44, borderRadius: 10 }}
+                  resizeMode="contain"
+                />
+                <View>
+                  <View style={styles.badgeRow}>
+                    <View style={styles.appBadge}>
+                      <Text style={styles.appBadgeText}>📱 OFFICIAL MOBILE APP</Text>
+                    </View>
+                    <View style={styles.versionBadge}>
+                      <Text style={styles.versionBadgeText}>v1.0.0 RELEASE</Text>
+                    </View>
+                  </View>
+                  <Text style={styles.headerTitle}>
+                    {language === 'kn'
+                      ? 'ಟರ್ನ್‌ವೈಸ್ (TurnWise) ಮೊಬೈಲ್ ಆ್ಯಪ್'
+                      : language === 'hi'
+                      ? 'टर्नवाइज़ (TurnWise) मोबाइल ऐप'
+                      : 'Get TurnWise Mobile App'}
+                  </Text>
                 </View>
               </View>
-              <Text style={styles.headerTitle}>
-                {language === 'kn'
-                  ? 'ಟರ್ನ್ ವೈಸ್ ಮೊಬೈಲ್ ಆ್ಯಪ್ ಡೌನ್‌ಲೋಡ್'
-                  : language === 'hi'
-                  ? 'टर्न वाइज मोबाइल ऐप डाउनलोड'
-                  : 'Get the Turn Wise Mobile App'}
-              </Text>
               <Text style={styles.headerSub}>
                 {language === 'kn'
                   ? 'ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ಸ್ಥಾಪಿಸಿ ಮತ್ತು ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ನಿಲ್ದಾಣ ನ್ಯಾವಿಗೇಷನ್ ಬಳಸಿ'
@@ -167,8 +176,8 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                 >
                   <Text style={styles.primaryActionBtnText}>
                     {deferredPrompt
-                      ? '📲 Install Turn Wise on This Device (1-Tap)'
-                      : '📲 Install Turn Wise on Phone / Desktop'}
+                      ? '📲 Install TurnWise on This Device (1-Tap)'
+                      : '📲 Install TurnWise on Phone / Desktop'}
                   </Text>
                 </TouchableOpacity>
 
@@ -207,7 +216,7 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                       <Text style={styles.stepNumText}>3</Text>
                     </View>
                     <Text style={styles.stepText}>
-                      Tap <Text style={{ fontWeight: '800' }}>Install</Text>. The Turn Wise app icon will appear on your home screen and open in full-screen native mode!
+                      Tap <Text style={{ fontWeight: '800' }}>Install</Text>. The TurnWise app icon will appear on your home screen and open in full-screen native mode!
                     </Text>
                   </View>
                 </View>
@@ -275,7 +284,7 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                       <Text style={styles.stepNumText}>1</Text>
                     </View>
                     <Text style={styles.stepText}>
-                      Tap the button above to open the official Turn Wise GitHub Release v1.0.0.
+                      Tap the button above to open the official TurnWise GitHub Release v1.0.0.
                     </Text>
                   </View>
                   <View style={styles.stepItem}>
@@ -350,7 +359,7 @@ export const AppDownloadModal: React.FC<AppDownloadModalProps> = ({ visible, onC
                       <Text style={styles.stepNumText}>4</Text>
                     </View>
                     <Text style={styles.stepText}>
-                      Tap <Text style={{ fontWeight: '800' }}>Add</Text> in the top right. Turn Wise is now installed on your home screen!
+                      Tap <Text style={{ fontWeight: '800' }}>Add</Text> in the top right. TurnWise is now installed on your home screen!
                     </Text>
                   </View>
                 </View>

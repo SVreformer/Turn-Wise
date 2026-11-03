@@ -54,12 +54,12 @@ export const AssistantChatScreen: React.FC<AssistantChatScreenProps> = ({
   const getWelcomeText = (lang: SupportedLanguage) => {
     switch (lang) {
       case 'kn':
-        return 'ನಮಸ್ಕಾರ! ನಾನು ಕೆಎಸ್ಆರ್ ಬೆಂಗಳೂರು ನಿಲ್ದಾಣದ ಅಧಿಕೃತ ಎಐ ಸಹಾಯಕ ಟರ್ನ್ ವೈಸ್ (Turn Wise). ಪ್ಲಾಟ್‌ಫಾರ್ಮ್, ಕೋಚ್ ಅಥವಾ ಸುಲಭ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಕೇಳಿ.';
+        return 'ನಮಸ್ಕಾರ! ನಾನು ಕೆಎಸ್ಆರ್ ಬೆಂಗಳೂರು ನಿಲ್ದಾಣದ ಅಧಿಕೃತ ಎಐ ಸಹಾಯಕ ಟರ್ನ್‌ವೈಸ್ (TurnWise). ಪ್ಲಾಟ್‌ಫಾರ್ಮ್, ಕೋಚ್ ಅಥವಾ ಸುಲಭ ಮಾರ್ಗದರ್ಶನಕ್ಕಾಗಿ ಕೇಳಿ.';
       case 'hi':
-        return 'नमस्कार! मैं केएसआर बेंगलुरु स्टेशन का आधिकारिक एआई सहायक टर्न वाइज (Turn Wise) हूँ। प्लेटफॉर्म, कोच या सुगम मार्ग के लिए मुझसे पूछें।';
+        return 'नमस्कार! मैं केएसआर बेंगलुरु स्टेशन का आधिकारिक एआई सहायक टर्नवाइज़ (TurnWise) हूँ। प्लेटफॉर्म, कोच या सुगम मार्ग के लिए मुझसे पूछें।';
       case 'en':
       default:
-        return 'Namaskara! I am Turn Wise AI Assistant, your official guide for KSR Bengaluru Railway Station. Ask me for platforms, coach positions, lifts, or accessible routes.';
+        return 'Namaskara! I am TurnWise AI Assistant, your official guide for KSR Bengaluru Railway Station. Ask me for platforms, coach positions, lifts, or accessible routes.';
     }
   };
 
@@ -230,7 +230,7 @@ export const AssistantChatScreen: React.FC<AssistantChatScreenProps> = ({
           </TouchableOpacity>
 
           <View style={{ alignItems: 'center' }}>
-            <Text style={styles.headerTitle}>TURN WISE AI ASSISTANT</Text>
+            <Text style={styles.headerTitle}>TURNWISE AI ASSISTANT</Text>
             <Text style={styles.headerSub}>Multilingual Grounded Spatial Guide</Text>
           </View>
 

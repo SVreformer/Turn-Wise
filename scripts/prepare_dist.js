@@ -18,8 +18,8 @@ if (fs.existsSync(srcIcon)) {
 
 // 3. Write PWA manifest.json
 const manifest = {
-  name: "Turn Wise — Station Indoor Navigation",
-  short_name: "Turn Wise",
+  name: "TurnWise — Station Indoor Navigation",
+  short_name: "TurnWise",
   start_url: "./index.html",
   scope: "./",
   display: "standalone",
@@ -54,7 +54,7 @@ indexHtml = indexHtml.replace(/src="\/_expo\//g, 'src="./_expo/');
 
 // Add base href and PWA meta tags if not present
 const headTags = `
-    <title>Turn Wise — Mobile App & Indoor Navigation</title>
+    <title>TurnWise — Mobile App & Indoor Navigation</title>
     <base href="/Turn-Wise/" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="icon" type="image/png" href="./icon.png" />
@@ -63,9 +63,10 @@ const headTags = `
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="Turn Wise" />`;
+    <meta name="apple-mobile-web-app-title" content="TurnWise" />`;
 
 indexHtml = indexHtml.replace(/<title>Turn Wise<\/title>/, headTags);
+indexHtml = indexHtml.replace(/<title>TurnWise<\/title>/, headTags);
 
 fs.writeFileSync(indexPath, indexHtml);
 console.log('Updated index.html with base href, relative script path, and PWA tags');

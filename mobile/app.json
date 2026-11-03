@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Turn Wise",
-    "slug": "turn-wise",
+    "name": "TurnWise",
+    "slug": "turnwise",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

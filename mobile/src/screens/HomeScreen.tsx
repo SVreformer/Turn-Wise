@@ -724,9 +724,14 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             <View style={styles.headerInner}>
               {/* Left: Brand Identity */}
               <View style={styles.brandContainer}>
+                <Image
+                  source={require('../../assets/logo.png')}
+                  style={styles.headerAppLogo}
+                  resizeMode="contain"
+                />
                 <View style={styles.brandTitleCol}>
                   <Text style={styles.brandMainTitle}>
-                    {language === 'kn' ? 'ಟರ್ನ್ ವೈಸ್ (Turn Wise)' : (language === 'hi' ? 'टर्न वाइज (Turn Wise)' : 'Turn Wise')}
+                    {language === 'kn' ? 'ಟರ್ನ್‌ವೈಸ್ (TurnWise)' : (language === 'hi' ? 'टर्नवाइज़ (TurnWise)' : 'TurnWise')}
                   </Text>
                   <Text style={styles.brandSubtitle}>
                     {(selectedStation?.name || selectedCity || 'KSR BENGALURU').toUpperCase()}
@@ -1623,6 +1628,11 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: '#10B981',
     letterSpacing: 1
+  },
+  headerAppLogo: {
+    width: 38,
+    height: 38,
+    borderRadius: 8
   },
   brandLogo: {
     width: 104,

@@ -59,7 +59,7 @@ export const QrScanScreen: React.FC<QrScanScreenProps> = ({
       <View style={styles.banner}>
         <Text style={styles.bannerTitle}>INDOOR POSITIONING CHECKPOINTS</Text>
         <Text style={styles.bannerSub}>
-          GPS is unreliable inside covered railway platforms. Scan a Turn Wise QR checkpoint or tap any pillar checkpoint below to update your location.
+          GPS is unreliable inside covered railway platforms. Scan a TurnWise QR checkpoint or tap any pillar checkpoint below to update your location.
         </Text>
       </View>
 
