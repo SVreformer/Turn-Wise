@@ -1,0 +1,30 @@
+{
+  "name": "turnwise",
+  "version": "1.0.0",
+  "description": "Turn Wise - Smart, Accessible & AI-Powered Indoor Navigation for KSR Bengaluru Railway Station",
+  "scripts": {
+    "validate-data": "python scripts/validate_graph.py",
+    "test": "node --test server/dist/test_endpoints.js",
+    "test:indoor-nav": "node ./server/node_modules/tsx/dist/cli.mjs scripts/test_indoor_nav.ts",
+    "test:boardingsure": "node ./server/node_modules/tsx/dist/cli.mjs scripts/test_boardingsure.ts",
+    "build:data": "python scripts/build_station_models.py && python scripts/generate_graph.py && python scripts/bundle_mobile_data.py",
+    "build:server": "cd server && npm install && npm run build",
+    "build:web": "cd mobile && npm install && npm run build:web",
+    "start:server": "cd server && npm start",
+    "dev:server": "cd server && npm run dev",
+    "start:mobile": "cd mobile && npx expo start"
+  },
+  "keywords": [
+    "turnwise",
+    "turn-wise",
+    "ksr-bengaluru",
+    "indoor-navigation",
+    "accessibility",
+    "wheelchair",
+    "expo",
+    "react-native",
+    "gemini"
+  ],
+  "author": "Turn Wise Architecture Team",
+  "license": "MIT"
+}

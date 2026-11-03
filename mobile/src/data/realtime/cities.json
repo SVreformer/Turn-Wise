@@ -1,0 +1,667 @@
+[
+  {
+    "id": "bengaluru",
+    "name": "Bengaluru",
+    "nameKn": "ಬೆಂಗಳೂರು",
+    "nameHi": "बेंगलुरु",
+    "state": "Karnataka",
+    "coordinates": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    },
+    "primaryStationCode": "SBC",
+    "stations": [
+      {
+        "code": "SBC",
+        "name": "KSR Bengaluru (City Station)",
+        "platforms": 10,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "YPR",
+        "name": "Yesvantpur Junction",
+        "platforms": 6,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "SMVB",
+        "name": "Sir M. Visvesvaraya Terminal (Baiyappanahalli)",
+        "platforms": 8,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "BNC",
+        "name": "Bengaluru Cantt",
+        "platforms": 4,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "KJM",
+        "name": "Krishnarajapuram",
+        "platforms": 4,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "KGI",
+        "name": "Kengeri",
+        "platforms": 4,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "YNK",
+        "name": "Yelahanka Junction",
+        "platforms": 4,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "WFD",
+        "name": "Whitefield",
+        "platforms": 4,
+        "division": "SBC",
+        "zone": "SWR"
+      },
+      {
+        "code": "BYPL",
+        "name": "Baiyyappanahalli",
+        "platforms": 2,
+        "division": "SBC",
+        "zone": "SWR"
+      }
+    ]
+  },
+  {
+    "id": "mysuru",
+    "name": "Mysuru (Mysore)",
+    "nameKn": "ಮೈಸೂರು",
+    "nameHi": "मैसूर / मैसूरु",
+    "state": "Karnataka",
+    "coordinates": {
+      "lat": 12.3189,
+      "lng": 76.646
+    },
+    "primaryStationCode": "MYS",
+    "stations": [
+      {
+        "code": "MYS",
+        "name": "Mysuru Junction (Mysore City)",
+        "platforms": 6,
+        "division": "MYS",
+        "zone": "SWR"
+      },
+      {
+        "code": "AP",
+        "name": "Ashokapuram (Mysuru Terminal)",
+        "platforms": 5,
+        "division": "MYS",
+        "zone": "SWR"
+      },
+      {
+        "code": "BLGA",
+        "name": "Belagola",
+        "platforms": 2,
+        "division": "MYS",
+        "zone": "SWR"
+      },
+      {
+        "code": "NHY",
+        "name": "Naganahalli",
+        "platforms": 2,
+        "division": "MYS",
+        "zone": "SWR"
+      },
+      {
+        "code": "KDO",
+        "name": "Kadakola",
+        "platforms": 2,
+        "division": "MYS",
+        "zone": "SWR"
+      }
+    ]
+  },
+  {
+    "id": "mumbai",
+    "name": "Mumbai",
+    "nameKn": "ಮುಂಬೈ",
+    "nameHi": "मुंबई",
+    "state": "Maharashtra",
+    "coordinates": {
+      "lat": 18.94,
+      "lng": 72.8354
+    },
+    "primaryStationCode": "CSMT",
+    "stations": [
+      {
+        "code": "CSMT",
+        "name": "Chhatrapati Shivaji Maharaj Terminus",
+        "platforms": 18,
+        "division": "CR",
+        "zone": "CR"
+      },
+      {
+        "code": "DR",
+        "name": "Dadar Junction",
+        "platforms": 15,
+        "division": "CR/WR",
+        "zone": "CR"
+      },
+      {
+        "code": "LTT",
+        "name": "Lokmanya Tilak Terminus (Kurla)",
+        "platforms": 5,
+        "division": "CR",
+        "zone": "CR"
+      },
+      {
+        "code": "BDTS",
+        "name": "Bandra Terminus",
+        "platforms": 9,
+        "division": "WR",
+        "zone": "WR"
+      },
+      {
+        "code": "MMCT",
+        "name": "Mumbai Central",
+        "platforms": 9,
+        "division": "WR",
+        "zone": "WR"
+      },
+      {
+        "code": "TNA",
+        "name": "Thane",
+        "platforms": 10,
+        "division": "CR",
+        "zone": "CR"
+      },
+      {
+        "code": "KYN",
+        "name": "Kalyan Junction",
+        "platforms": 8,
+        "division": "CR",
+        "zone": "CR"
+      },
+      {
+        "code": "BVI",
+        "name": "Borivali",
+        "platforms": 10,
+        "division": "WR",
+        "zone": "WR"
+      },
+      {
+        "code": "PNVL",
+        "name": "Panvel Junction",
+        "platforms": 7,
+        "division": "CR",
+        "zone": "CR"
+      }
+    ]
+  },
+  {
+    "id": "delhi",
+    "name": "New Delhi / NCR",
+    "nameKn": "ದೆಹಲಿ",
+    "nameHi": "नई दिल्ली / एनसीआर",
+    "state": "Delhi",
+    "coordinates": {
+      "lat": 28.6139,
+      "lng": 77.209
+    },
+    "primaryStationCode": "NDLS",
+    "stations": [
+      {
+        "code": "NDLS",
+        "name": "New Delhi Railway Station",
+        "platforms": 16,
+        "division": "DLI",
+        "zone": "NR"
+      },
+      {
+        "code": "DLI",
+        "name": "Old Delhi Junction",
+        "platforms": 16,
+        "division": "DLI",
+        "zone": "NR"
+      },
+      {
+        "code": "NZM",
+        "name": "Hazrat Nizamuddin",
+        "platforms": 9,
+        "division": "DLI",
+        "zone": "NR"
+      },
+      {
+        "code": "ANVT",
+        "name": "Anand Vihar Terminal",
+        "platforms": 7,
+        "division": "DLI",
+        "zone": "NR"
+      },
+      {
+        "code": "DEE",
+        "name": "Delhi Sarai Rohilla",
+        "platforms": 5,
+        "division": "DLI",
+        "zone": "NR"
+      },
+      {
+        "code": "GZB",
+        "name": "Ghaziabad Junction",
+        "platforms": 6,
+        "division": "DLI",
+        "zone": "NR"
+      },
+      {
+        "code": "DEC",
+        "name": "Delhi Cantt",
+        "platforms": 4,
+        "division": "DLI",
+        "zone": "NR"
+      }
+    ]
+  },
+  {
+    "id": "chennai",
+    "name": "Chennai",
+    "nameKn": "ಚೆನ್ನೈ",
+    "nameHi": "चेन्नई",
+    "state": "Tamil Nadu",
+    "coordinates": {
+      "lat": 13.0827,
+      "lng": 80.2707
+    },
+    "primaryStationCode": "MAS",
+    "stations": [
+      {
+        "code": "MAS",
+        "name": "Chennai Central (Puratchi Thalaivar Dr. MGR)",
+        "platforms": 17,
+        "division": "MAS",
+        "zone": "SR"
+      },
+      {
+        "code": "MS",
+        "name": "Chennai Egmore",
+        "platforms": 11,
+        "division": "MAS",
+        "zone": "SR"
+      },
+      {
+        "code": "TBM",
+        "name": "Tambaram",
+        "platforms": 8,
+        "division": "MAS",
+        "zone": "SR"
+      },
+      {
+        "code": "PER",
+        "name": "Perambur",
+        "platforms": 4,
+        "division": "MAS",
+        "zone": "SR"
+      },
+      {
+        "code": "MSB",
+        "name": "Chennai Beach",
+        "platforms": 8,
+        "division": "MAS",
+        "zone": "SR"
+      },
+      {
+        "code": "AVD",
+        "name": "Avadi",
+        "platforms": 6,
+        "division": "MAS",
+        "zone": "SR"
+      }
+    ]
+  },
+  {
+    "id": "kolkata",
+    "name": "Kolkata",
+    "nameKn": "ಕೋಲ್ಕತ್ತಾ",
+    "nameHi": "कोलकाता",
+    "state": "West Bengal",
+    "coordinates": {
+      "lat": 22.5726,
+      "lng": 88.3639
+    },
+    "primaryStationCode": "HWH",
+    "stations": [
+      {
+        "code": "HWH",
+        "name": "Howrah Junction",
+        "platforms": 23,
+        "division": "HWH",
+        "zone": "ER/SER"
+      },
+      {
+        "code": "SDAH",
+        "name": "Sealdah",
+        "platforms": 21,
+        "division": "SDAH",
+        "zone": "ER"
+      },
+      {
+        "code": "KOAA",
+        "name": "Kolkata Terminus (Chitpur)",
+        "platforms": 5,
+        "division": "SDAH",
+        "zone": "ER"
+      },
+      {
+        "code": "SHM",
+        "name": "Shalimar",
+        "platforms": 5,
+        "division": "KGP",
+        "zone": "SER"
+      },
+      {
+        "code": "SRC",
+        "name": "Santragachi Junction",
+        "platforms": 6,
+        "division": "KGP",
+        "zone": "SER"
+      }
+    ]
+  },
+  {
+    "id": "hyderabad",
+    "name": "Hyderabad / Secunderabad",
+    "nameKn": "ಹೈದರಾಬಾದ್",
+    "nameHi": "हैदराबाद / सिकंदराबाद",
+    "state": "Telangana",
+    "coordinates": {
+      "lat": 17.385,
+      "lng": 78.4867
+    },
+    "primaryStationCode": "SC",
+    "stations": [
+      {
+        "code": "SC",
+        "name": "Secunderabad Junction",
+        "platforms": 10,
+        "division": "SC",
+        "zone": "SCR"
+      },
+      {
+        "code": "HYB",
+        "name": "Hyderabad Deccan (Nampally)",
+        "platforms": 6,
+        "division": "SC",
+        "zone": "SCR"
+      },
+      {
+        "code": "KCG",
+        "name": "Kacheguda",
+        "platforms": 5,
+        "division": "HYB",
+        "zone": "SCR"
+      },
+      {
+        "code": "LPI",
+        "name": "Lingampalli",
+        "platforms": 6,
+        "division": "SC",
+        "zone": "SCR"
+      },
+      {
+        "code": "CHZ",
+        "name": "Charlapalli Terminal",
+        "platforms": 4,
+        "division": "SC",
+        "zone": "SCR"
+      },
+      {
+        "code": "BMT",
+        "name": "Begumpet",
+        "platforms": 2,
+        "division": "SC",
+        "zone": "SCR"
+      }
+    ]
+  },
+  {
+    "id": "pune",
+    "name": "Pune",
+    "nameKn": "ಪುಣೆ",
+    "nameHi": "पुणे",
+    "state": "Maharashtra",
+    "coordinates": {
+      "lat": 18.5204,
+      "lng": 73.8567
+    },
+    "primaryStationCode": "PUNE",
+    "stations": [
+      {
+        "code": "PUNE",
+        "name": "Pune Junction",
+        "platforms": 6,
+        "division": "PUNE",
+        "zone": "CR"
+      },
+      {
+        "code": "SVJR",
+        "name": "Shivajinagar",
+        "platforms": 2,
+        "division": "PUNE",
+        "zone": "CR"
+      },
+      {
+        "code": "HDP",
+        "name": "Hadapsar Terminal",
+        "platforms": 3,
+        "division": "PUNE",
+        "zone": "CR"
+      },
+      {
+        "code": "KK",
+        "name": "Khadki",
+        "platforms": 2,
+        "division": "PUNE",
+        "zone": "CR"
+      },
+      {
+        "code": "LNL",
+        "name": "Lonavala",
+        "platforms": 3,
+        "division": "PUNE",
+        "zone": "CR"
+      }
+    ]
+  },
+  {
+    "id": "ahmedabad",
+    "name": "Ahmedabad",
+    "nameKn": "ಅಹಮದಾಬಾದ್",
+    "nameHi": "अहमदाबाद",
+    "state": "Gujarat",
+    "coordinates": {
+      "lat": 23.0225,
+      "lng": 72.5714
+    },
+    "primaryStationCode": "ADI",
+    "stations": [
+      {
+        "code": "ADI",
+        "name": "Ahmedabad Junction (Kalupur)",
+        "platforms": 12,
+        "division": "ADI",
+        "zone": "WR"
+      },
+      {
+        "code": "SBT",
+        "name": "Sabarmati Junction",
+        "platforms": 5,
+        "division": "ADI",
+        "zone": "WR"
+      },
+      {
+        "code": "GNC",
+        "name": "Gandhinagar Capital",
+        "platforms": 3,
+        "division": "ADI",
+        "zone": "WR"
+      },
+      {
+        "code": "MAN",
+        "name": "Maninagar",
+        "platforms": 2,
+        "division": "ADI",
+        "zone": "WR"
+      }
+    ]
+  },
+  {
+    "id": "jaipur",
+    "name": "Jaipur",
+    "nameKn": "ಜೈಪುರ",
+    "nameHi": "जयपुर",
+    "state": "Rajasthan",
+    "coordinates": {
+      "lat": 26.9124,
+      "lng": 75.7873
+    },
+    "primaryStationCode": "JP",
+    "stations": [
+      {
+        "code": "JP",
+        "name": "Jaipur Junction",
+        "platforms": 8,
+        "division": "JP",
+        "zone": "NWR"
+      },
+      {
+        "code": "GADJ",
+        "name": "Gandhinagar Jaipur",
+        "platforms": 2,
+        "division": "JP",
+        "zone": "NWR"
+      },
+      {
+        "code": "DKBJ",
+        "name": "Dahar Ka Balaji",
+        "platforms": 2,
+        "division": "JP",
+        "zone": "NWR"
+      }
+    ]
+  },
+  {
+    "id": "lucknow",
+    "name": "Lucknow",
+    "nameKn": "ಲಖನೌ",
+    "nameHi": "लखनऊ",
+    "state": "Uttar Pradesh",
+    "coordinates": {
+      "lat": 26.8467,
+      "lng": 80.9462
+    },
+    "primaryStationCode": "LKO",
+    "stations": [
+      {
+        "code": "LKO",
+        "name": "Lucknow Charbagh (NR)",
+        "platforms": 9,
+        "division": "LKO",
+        "zone": "NR"
+      },
+      {
+        "code": "LJN",
+        "name": "Lucknow Junction (NER)",
+        "platforms": 6,
+        "division": "LJN",
+        "zone": "NER"
+      },
+      {
+        "code": "BNZ",
+        "name": "Badshahnagar",
+        "platforms": 2,
+        "division": "LJN",
+        "zone": "NER"
+      }
+    ]
+  },
+  {
+    "id": "kochi",
+    "name": "Kochi / Ernakulam",
+    "nameKn": "ಕೊಚ್ಚಿ",
+    "nameHi": "कोच्चि / एर्नाकुलम",
+    "state": "Kerala",
+    "coordinates": {
+      "lat": 9.9816,
+      "lng": 76.2999
+    },
+    "primaryStationCode": "ERS",
+    "stations": [
+      {
+        "code": "ERS",
+        "name": "Ernakulam Junction (South)",
+        "platforms": 6,
+        "division": "TVC",
+        "zone": "SR"
+      },
+      {
+        "code": "ERN",
+        "name": "Ernakulam Town (North)",
+        "platforms": 2,
+        "division": "TVC",
+        "zone": "SR"
+      },
+      {
+        "code": "AWY",
+        "name": "Aluva",
+        "platforms": 3,
+        "division": "TVC",
+        "zone": "SR"
+      }
+    ]
+  },
+  {
+    "id": "patna",
+    "name": "Patna",
+    "nameKn": "ಪಾಟ್ನಾ",
+    "nameHi": "पटना",
+    "state": "Bihar",
+    "coordinates": {
+      "lat": 25.5941,
+      "lng": 85.1376
+    },
+    "primaryStationCode": "PNBE",
+    "stations": [
+      {
+        "code": "PNBE",
+        "name": "Patna Junction",
+        "platforms": 10,
+        "division": "DNR",
+        "zone": "ECR"
+      },
+      {
+        "code": "DNR",
+        "name": "Danapur",
+        "platforms": 5,
+        "division": "DNR",
+        "zone": "ECR"
+      },
+      {
+        "code": "PPTA",
+        "name": "Patliputra Junction",
+        "platforms": 3,
+        "division": "DNR",
+        "zone": "ECR"
+      },
+      {
+        "code": "RJPB",
+        "name": "Rajendra Nagar Terminal",
+        "platforms": 4,
+        "division": "DNR",
+        "zone": "ECR"
+      }
+    ]
+  }
+]

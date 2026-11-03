@@ -1,0 +1,719 @@
+[
+  {
+    "id": "platform_1",
+    "name": "Platform 1",
+    "number": 1,
+    "level": 0,
+    "center": {
+      "x": 1520.0,
+      "y": 980.9
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 980.9
+    },
+    "badgeRight": {
+      "x": 2172.6,
+      "y": 971.2
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          450.0,
+          945.0
+        ],
+        [
+          2750.0,
+          945.0
+        ],
+        [
+          2750.0,
+          1015.0
+        ],
+        [
+          450.0,
+          1015.0
+        ]
+      ]
+    },
+    "description": "Main primary platform directly adjacent to Terminal 1 Concourse. Direct level access without vertical transition.",
+    "nearestPathways": [
+      "pathway_t1_concourse",
+      "pathway_pf1_central"
+    ],
+    "nearestEntrances": [
+      "entry_t1_main_east",
+      "entry_t1_main_west"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf1",
+      "fob2_pf1",
+      "metro_fob_pf1"
+    ],
+    "nearestLifts": [
+      "lift_3",
+      "lift_2"
+    ],
+    "nearestStairs": [
+      "stair_pf1_fob1",
+      "stair_pf1_fob2",
+      "stair_pf1_subway"
+    ],
+    "nearestRamps": [
+      "ramp_3",
+      "ramp_5",
+      "ramp_t1_subway"
+    ],
+    "nearestToilets": [
+      "toilet_pf1_west",
+      "toilet_t1_main"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Direct ground level access from Terminal 1; Ramps and Lift 3 connect to FOB 2."
+    }
+  },
+  {
+    "id": "platform_2",
+    "name": "Platform 2",
+    "number": 2,
+    "level": 0,
+    "center": {
+      "x": 1500.0,
+      "y": 889.8
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 889.8
+    },
+    "badgeRight": {
+      "x": 2444.7,
+      "y": 889.3
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          865.0
+        ],
+        [
+          2600.0,
+          865.0
+        ],
+        [
+          2600.0,
+          915.0
+        ],
+        [
+          420.0,
+          915.0
+        ]
+      ]
+    },
+    "description": "Island platform sharing concourse with Platform 3.",
+    "nearestPathways": [
+      "pathway_pf2_3_central"
+    ],
+    "nearestEntrances": [
+      "entry_t1_main_east",
+      "entry_t1_main_west"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf2_3",
+      "fob2_pf2_3",
+      "metro_fob_pf2"
+    ],
+    "nearestLifts": [
+      "lift_3"
+    ],
+    "nearestStairs": [
+      "stair_pf2_3_fob1",
+      "stair_pf2_3_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_3",
+      "ramp_5"
+    ],
+    "nearestToilets": [
+      "toilet_pf2_3"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Accessible via Ramp 3/5 on FOB 2 and Majestic Subway Ramp."
+    }
+  },
+  {
+    "id": "platform_3",
+    "name": "Platform 3",
+    "number": 3,
+    "level": 0,
+    "center": {
+      "x": 1500.0,
+      "y": 832.7
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 832.7
+    },
+    "badgeRight": {
+      "x": 2440.1,
+      "y": 830.4
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          810.0
+        ],
+        [
+          2600.0,
+          810.0
+        ],
+        [
+          2600.0,
+          860.0
+        ],
+        [
+          420.0,
+          860.0
+        ]
+      ]
+    },
+    "description": "Island platform sharing concourse with Platform 2.",
+    "nearestPathways": [
+      "pathway_pf2_3_central"
+    ],
+    "nearestEntrances": [
+      "entry_t1_main_east",
+      "entry_t1_main_west"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf2_3",
+      "fob2_pf2_3",
+      "metro_fob_pf3"
+    ],
+    "nearestLifts": [
+      "lift_3"
+    ],
+    "nearestStairs": [
+      "stair_pf2_3_fob1",
+      "stair_pf2_3_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_3",
+      "ramp_5"
+    ],
+    "nearestToilets": [
+      "toilet_pf2_3"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Accessible via Ramp 3/5 on FOB 2 and Majestic Subway Ramp."
+    }
+  },
+  {
+    "id": "platform_4",
+    "name": "Platform 4",
+    "number": 4,
+    "level": 0,
+    "center": {
+      "x": 1400.0,
+      "y": 725.7
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 725.7
+    },
+    "badgeRight": {
+      "x": 1961.9,
+      "y": 725.1
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          705.0
+        ],
+        [
+          2200.0,
+          705.0
+        ],
+        [
+          2200.0,
+          755.0
+        ],
+        [
+          420.0,
+          755.0
+        ]
+      ]
+    },
+    "description": "Central through platform with express train connectivity.",
+    "nearestPathways": [
+      "pathway_pf4_central"
+    ],
+    "nearestEntrances": [
+      "entry_t1_main_west"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf4",
+      "fob2_pf4_5",
+      "metro_fob_pf4"
+    ],
+    "nearestLifts": [
+      "lift_1"
+    ],
+    "nearestStairs": [
+      "stair_pf4_fob1",
+      "stair_pf4_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_2",
+      "ramp_6"
+    ],
+    "nearestToilets": [
+      "toilet_pf4"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Accessible via Ramp 2/6 to FOB 2 and Subway."
+    }
+  },
+  {
+    "id": "platform_5",
+    "name": "Platform 5",
+    "number": 5,
+    "level": 0,
+    "center": {
+      "x": 1500.0,
+      "y": 600.7
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 600.7
+    },
+    "badgeRight": {
+      "x": 2438.5,
+      "y": 715.0
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          580.0
+        ],
+        [
+          2600.0,
+          580.0
+        ],
+        [
+          2600.0,
+          630.0
+        ],
+        [
+          420.0,
+          630.0
+        ]
+      ]
+    },
+    "description": "Island platform sharing island with Platform 6.",
+    "nearestPathways": [
+      "pathway_pf5_6_central"
+    ],
+    "nearestEntrances": [
+      "entry_t2_east"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf5_6",
+      "fob2_pf4_5",
+      "metro_fob_pf5"
+    ],
+    "nearestLifts": [
+      "lift_1"
+    ],
+    "nearestStairs": [
+      "stair_pf5_6_fob1",
+      "stair_pf5_6_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_2",
+      "ramp_6"
+    ],
+    "nearestToilets": [
+      "toilet_pf5_6"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Accessible via Ramp 2/6 to FOB 2."
+    }
+  },
+  {
+    "id": "platform_6",
+    "name": "Platform 6",
+    "number": 6,
+    "level": 0,
+    "center": {
+      "x": 1500.0,
+      "y": 548.5
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 548.5
+    },
+    "badgeRight": {
+      "x": 2437.4,
+      "y": 660.8
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          530.0
+        ],
+        [
+          2600.0,
+          530.0
+        ],
+        [
+          2600.0,
+          575.0
+        ],
+        [
+          420.0,
+          575.0
+        ]
+      ]
+    },
+    "description": "Island platform sharing island with Platform 5.",
+    "nearestPathways": [
+      "pathway_pf5_6_central"
+    ],
+    "nearestEntrances": [
+      "entry_t2_east"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf5_6",
+      "fob2_pf4_5",
+      "metro_fob_pf6"
+    ],
+    "nearestLifts": [
+      "lift_1"
+    ],
+    "nearestStairs": [
+      "stair_pf5_6_fob1",
+      "stair_pf5_6_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_2",
+      "ramp_6"
+    ],
+    "nearestToilets": [
+      "toilet_pf5_6"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Accessible via Ramp 2/6 to FOB 2."
+    }
+  },
+  {
+    "id": "platform_7",
+    "name": "Platform 7",
+    "number": 7,
+    "level": 0,
+    "center": {
+      "x": 1450.0,
+      "y": 450.6
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 450.6
+    },
+    "badgeRight": {
+      "x": 2295.5,
+      "y": 464.6
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          430.0
+        ],
+        [
+          2500.0,
+          430.0
+        ],
+        [
+          2500.0,
+          475.0
+        ],
+        [
+          420.0,
+          475.0
+        ]
+      ]
+    },
+    "description": "Island platform paired with Platform 8. Direct connection to Lift 1 and Ramp 1/7 on FOB 2.",
+    "nearestPathways": [
+      "pathway_pf7_8_central"
+    ],
+    "nearestEntrances": [
+      "entry_t2_east"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf7_8",
+      "fob2_pf7_8",
+      "metro_fob_pf7"
+    ],
+    "nearestLifts": [
+      "lift_1"
+    ],
+    "nearestStairs": [
+      "stair_pf7_8_fob1",
+      "stair_pf7_8_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_1",
+      "ramp_7"
+    ],
+    "nearestToilets": [
+      "toilet_pf7_8"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Fully wheelchair accessible via Lift 1 and Ramp 1/7 to FOB 2."
+    }
+  },
+  {
+    "id": "platform_8",
+    "name": "Platform 8",
+    "number": 8,
+    "level": 0,
+    "center": {
+      "x": 1450.0,
+      "y": 375.9
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 375.9
+    },
+    "badgeRight": {
+      "x": 2295.5,
+      "y": 376.1
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          355.0
+        ],
+        [
+          2500.0,
+          355.0
+        ],
+        [
+          2500.0,
+          400.0
+        ],
+        [
+          420.0,
+          400.0
+        ]
+      ]
+    },
+    "description": "High-priority long-distance passenger platform. Paired with Platform 7. Equipped with Lift 1 at eastern FOB 2 junction.",
+    "nearestPathways": [
+      "pathway_pf7_8_central"
+    ],
+    "nearestEntrances": [
+      "entry_t2_east",
+      "entry_t1_main_east"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf7_8",
+      "fob2_pf7_8",
+      "metro_fob_pf8"
+    ],
+    "nearestLifts": [
+      "lift_1"
+    ],
+    "nearestStairs": [
+      "stair_pf7_8_fob1",
+      "stair_pf7_8_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_1",
+      "ramp_7"
+    ],
+    "nearestToilets": [
+      "toilet_pf7_8"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Primary accessible destination. Directly served by Lift 1 (X: 2586.7, Y: 434.2) and Ramp 1/7."
+    }
+  },
+  {
+    "id": "platform_9",
+    "name": "Platform 9",
+    "number": 9,
+    "level": 0,
+    "center": {
+      "x": 1400.0,
+      "y": 278.9
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 278.9
+    },
+    "badgeRight": {
+      "x": 2294.4,
+      "y": 278.9
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          255.0
+        ],
+        [
+          2450.0,
+          255.0
+        ],
+        [
+          2450.0,
+          305.0
+        ],
+        [
+          420.0,
+          305.0
+        ]
+      ]
+    },
+    "description": "Island platform paired with Platform 10. Northern section of station.",
+    "nearestPathways": [
+      "pathway_pf9_10_central"
+    ],
+    "nearestEntrances": [
+      "entry_t2_okklapura"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf9_10",
+      "fob2_pf9_10",
+      "metro_fob_pf9"
+    ],
+    "nearestLifts": [
+      "lift_1"
+    ],
+    "nearestStairs": [
+      "stair_pf9_10_fob1",
+      "stair_pf9_10_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_1"
+    ],
+    "nearestToilets": [
+      "toilet_pf9_10_east"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Connected to FOB 1 and FOB 2."
+    }
+  },
+  {
+    "id": "platform_10",
+    "name": "Platform 10",
+    "number": 10,
+    "level": 0,
+    "center": {
+      "x": 1400.0,
+      "y": 214.6
+    },
+    "badgeLeft": {
+      "x": 862.3,
+      "y": 214.6
+    },
+    "badgeRight": {
+      "x": 2294.4,
+      "y": 214.7
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          420.0,
+          190.0
+        ],
+        [
+          2450.0,
+          190.0
+        ],
+        [
+          2450.0,
+          245.0
+        ],
+        [
+          420.0,
+          245.0
+        ]
+      ]
+    },
+    "description": "Northernmost passenger platform with direct western FOB connection to Metro.",
+    "nearestPathways": [
+      "pathway_pf9_10_central"
+    ],
+    "nearestEntrances": [
+      "entry_t2_okklapura"
+    ],
+    "nearestFobConnections": [
+      "fob1_pf9_10",
+      "fob2_pf9_10",
+      "metro_fob_pf10"
+    ],
+    "nearestLifts": [
+      "lift_1"
+    ],
+    "nearestStairs": [
+      "stair_pf9_10_fob1",
+      "stair_pf9_10_fob2"
+    ],
+    "nearestRamps": [
+      "ramp_1"
+    ],
+    "nearestToilets": [
+      "toilet_pf9_10_east"
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true,
+      "tactilePaving": true,
+      "notes": "Direct access to Mysuru End FOB and Metro bridge."
+    }
+  }
+]

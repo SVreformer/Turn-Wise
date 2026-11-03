@@ -1,0 +1,505 @@
+[
+  {
+    "id": "lift_1",
+    "name": "Lift 1 (Platform 7/8)",
+    "type": "LIFT",
+    "coordinates": {
+      "x": 2586.7,
+      "y": 434.2
+    },
+    "layer": "LIFT",
+    "level": 0,
+    "connectsLevels": [
+      0,
+      1
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "brailleBrailleButtons": true,
+      "audioAnnouncement": true
+    },
+    "status": "OPEN",
+    "description": "Connects Platform 7/8 directly to Okkalpuram Footover Bridge (FOB 2)."
+  },
+  {
+    "id": "lift_2",
+    "name": "Lift 2 (Terminal 1 Concourse)",
+    "type": "LIFT",
+    "coordinates": {
+      "x": 1661.7,
+      "y": 1110.6
+    },
+    "layer": "_x31__lift_2_",
+    "level": 0,
+    "connectsLevels": [
+      0,
+      -1
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "brailleBrailleButtons": true,
+      "audioAnnouncement": true
+    },
+    "status": "OPEN",
+    "description": "Connects Terminal 1 Main Concourse to Majestic Underground Subway."
+  },
+  {
+    "id": "lift_3",
+    "name": "Lift 3 (Platform 1 East)",
+    "type": "LIFT",
+    "coordinates": {
+      "x": 2659.2,
+      "y": 973.8
+    },
+    "layer": "_x31__lift_3_",
+    "level": 0,
+    "connectsLevels": [
+      0,
+      1
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "brailleBrailleButtons": true,
+      "audioAnnouncement": true
+    },
+    "status": "OPEN",
+    "description": "Connects Platform 1 East concourse to FOB 2 and Terminal 2 walkway."
+  },
+  {
+    "id": "ramp_1",
+    "name": "Ramp 1 / Ramp 7 (Platform 7/8)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 2702.1,
+      "y": 465.4
+    },
+    "layer": "Ramp_1_",
+    "level": 0,
+    "connectsLevels": [
+      0,
+      1
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "slopeGradient": "1:12",
+      "handrails": true
+    },
+    "status": "OPEN",
+    "description": "Gentle slope accessible ramp from Platform 7/8 up to FOB 2."
+  },
+  {
+    "id": "ramp_2",
+    "name": "Ramp 2 / Ramp 6 (Platform 4/5)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 2550.0,
+      "y": 725.0
+    },
+    "layer": "Ramp_2_",
+    "level": 0,
+    "connectsLevels": [
+      0,
+      1
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "slopeGradient": "1:12",
+      "handrails": true
+    },
+    "status": "OPEN",
+    "description": "Accessible ramp connecting Platform 4 and 5 to FOB 2."
+  },
+  {
+    "id": "ramp_3",
+    "name": "Ramp 3 / Ramp 5 (Platform 1/2)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 2586.0,
+      "y": 1000.0
+    },
+    "layer": "Ramp_3_",
+    "level": 0,
+    "connectsLevels": [
+      0,
+      1
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "slopeGradient": "1:12",
+      "handrails": true
+    },
+    "status": "OPEN",
+    "description": "Accessible ramp connecting Platform 1 and 2 to FOB 2."
+  },
+  {
+    "id": "ramp_t1_subway",
+    "name": "Subway Access Ramp (Terminal 1)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 1547.2,
+      "y": 1175.7
+    },
+    "layer": "_x31__RAMP_2_",
+    "level": 0,
+    "connectsLevels": [
+      0,
+      -1
+    ],
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "slopeGradient": "1:12",
+      "handrails": true
+    },
+    "status": "OPEN",
+    "description": "Main entrance accessible ramp descending into Majestic Subway."
+  },
+  {
+    "id": "toilet_pf7_8",
+    "name": "Restroom Platform 7/8",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 1480.0,
+      "y": 378.6
+    },
+    "layer": "_x38__TOILET_2_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Restrooms located on Platform 7/8 island."
+  },
+  {
+    "id": "toilet_pf5_6",
+    "name": "Restroom Platform 5/6",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 1368.2,
+      "y": 582.2
+    },
+    "layer": "_x39__TOILET_1_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Public restrooms on Platform 5/6."
+  },
+  {
+    "id": "toilet_pf4",
+    "name": "Restroom Platform 4",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 1271.1,
+      "y": 735.7
+    },
+    "layer": "_x39__TOILET_3_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": false,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Central platform restroom near waiting area."
+  },
+  {
+    "id": "toilet_pf2_3",
+    "name": "Restroom Platform 2/3",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 1575.0,
+      "y": 865.3
+    },
+    "layer": "_x38__TOILET_1_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Restrooms located on Platform 2/3."
+  },
+  {
+    "id": "toilet_pf1_west",
+    "name": "Restroom Platform 1 West",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 1372.5,
+      "y": 1053.2
+    },
+    "layer": "_x39__TOILET_4_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Spacious accessible restroom near Terminal 1 entrance."
+  },
+  {
+    "id": "toilet_pf9_10_east",
+    "name": "Restroom Platform 9/10 East",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 2630.0,
+      "y": 262.4
+    },
+    "layer": "_x39__TOILET_2_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": false,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Eastern restroom on Platform 9/10."
+  },
+  {
+    "id": "toilet_t1_main",
+    "name": "Terminal 1 Concourse Restroom",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 1762.4,
+      "y": 1280.0
+    },
+    "layer": "TOILET",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Terminal 1 main waiting hall accessible restroom."
+  },
+  {
+    "id": "toilet_t2",
+    "name": "Terminal 2 Restroom",
+    "type": "TOILET",
+    "coordinates": {
+      "x": 2957.8,
+      "y": 611.2
+    },
+    "layer": "Toilet_2_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "genderSegregated": true,
+      "waterAvailable": true
+    },
+    "status": "OPEN",
+    "description": "Terminal 2 entrance public toilet."
+  },
+  {
+    "id": "entry_t1_main_east",
+    "name": "Terminal 1 Main Entrance (East Gate)",
+    "type": "ENTRANCE",
+    "coordinates": {
+      "x": 1811.0,
+      "y": 1163.0
+    },
+    "layer": "Entry",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true
+    },
+    "status": "OPEN",
+    "description": "Primary public entrance facing Gubbi Thotadappa Road."
+  },
+  {
+    "id": "entry_t1_main_west",
+    "name": "Terminal 1 Main Entrance (West Gate)",
+    "type": "ENTRANCE",
+    "coordinates": {
+      "x": 1573.2,
+      "y": 1138.3
+    },
+    "layer": "Entry_2_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true
+    },
+    "status": "OPEN",
+    "description": "Terminal 1 west gate near auto stand and parking."
+  },
+  {
+    "id": "entry_t1_center",
+    "name": "Terminal 1 Concourse Center Gate",
+    "type": "ENTRANCE",
+    "coordinates": {
+      "x": 1710.5,
+      "y": 1080.9
+    },
+    "layer": "Entry_3_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true
+    },
+    "status": "OPEN",
+    "description": "Direct archway into Terminal 1 passenger concourse."
+  },
+  {
+    "id": "entry_t2_east",
+    "name": "Terminal 2 East Entrance",
+    "type": "ENTRANCE",
+    "coordinates": {
+      "x": 2973.4,
+      "y": 554.7
+    },
+    "layer": "Entry_1_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true
+    },
+    "status": "OPEN",
+    "description": "Terminal 2 pedestrian access gate."
+  },
+  {
+    "id": "entry_t2_okklapura",
+    "name": "Terminal 2 Okkalpuram Gate",
+    "type": "ENTRANCE",
+    "coordinates": {
+      "x": 3163.6,
+      "y": 719.4
+    },
+    "layer": "Entry_4_",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true
+    },
+    "status": "OPEN",
+    "description": "Okkalpuram vehicular drop-off entrance."
+  },
+  {
+    "id": "entry_t3_metro",
+    "name": "Terminal 3 Metro Entrance",
+    "type": "METRO",
+    "coordinates": {
+      "x": 745.0,
+      "y": 1280.0
+    },
+    "layer": "Metro_FOB",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "stepFreeAccess": true
+    },
+    "status": "OPEN",
+    "description": "Direct covered walkway to Namma Metro KSR City Railway Station."
+  },
+  {
+    "id": "booking_t2",
+    "name": "Terminal 2 Booking Office",
+    "type": "TICKET_COUNTER",
+    "coordinates": {
+      "x": 2862.8,
+      "y": 552.9
+    },
+    "layer": "T2_Booking",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "lowCounters": true
+    },
+    "status": "OPEN",
+    "description": "Unreserved & reserved ticket booking counters at Terminal 2."
+  },
+  {
+    "id": "booking_t1",
+    "name": "Terminal 1 Main Ticket Counter",
+    "type": "TICKET_COUNTER",
+    "coordinates": {
+      "x": 1680.0,
+      "y": 1180.0
+    },
+    "layer": "Terminals",
+    "level": 0,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "lowCounters": true
+    },
+    "status": "OPEN",
+    "description": "Main reservation and unreserved ticketing hall in Terminal 1."
+  },
+  {
+    "id": "fob_metro",
+    "name": "Metro Footover Bridge (West)",
+    "type": "FOB",
+    "coordinates": {
+      "x": 750.0,
+      "y": 600.0
+    },
+    "layer": "Metro_FOB",
+    "level": 1,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "rampsAvailable": true
+    },
+    "status": "OPEN",
+    "description": "High-capacity footbridge directly connecting Metro station to all platforms."
+  },
+  {
+    "id": "fob_mysuru_1",
+    "name": "Footover Bridge 1 (Mysuru End)",
+    "type": "FOB",
+    "coordinates": {
+      "x": 1390.0,
+      "y": 550.0
+    },
+    "layer": "FOB_1",
+    "level": 1,
+    "accessibility": {
+      "wheelchairAccessible": false,
+      "stairsOnly": true
+    },
+    "status": "OPEN",
+    "description": "Central passenger footbridge spanning Platforms 1 to 10."
+  },
+  {
+    "id": "fob_okklapura_2",
+    "name": "Footover Bridge 2 (Okkalpuram / Dharmavaram End)",
+    "type": "FOB",
+    "coordinates": {
+      "x": 2618.0,
+      "y": 650.0
+    },
+    "layer": "FOB_2",
+    "level": 1,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "liftEquipped": true,
+      "rampEquipped": true
+    },
+    "status": "OPEN",
+    "description": "Fully accessible bridge equipped with Lift 1 (PF 7/8), Lift 3 (PF 1), and Ramps 1\u20137."
+  },
+  {
+    "id": "subway_majestic",
+    "name": "Subway to Majestic",
+    "type": "SUBWAY",
+    "coordinates": {
+      "x": 1450.0,
+      "y": 1050.0
+    },
+    "layer": "Floor_n_subwy",
+    "level": -1,
+    "accessibility": {
+      "wheelchairAccessible": true,
+      "rampEquipped": true
+    },
+    "status": "OPEN",
+    "description": "Underground passenger subway connecting Terminal 1 concourse and platforms."
+  }
+]

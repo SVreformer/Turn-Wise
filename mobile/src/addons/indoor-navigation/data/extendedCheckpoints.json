@@ -1,0 +1,139 @@
+[
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-T1-MAIN",
+    "name": "Terminal 1 East Main Entry Checkpoint",
+    "level": 0,
+    "associatedNodeId": "node_entry_t1_main_east",
+    "coordinates": { "x": 1811.0, "y": 1163.0 },
+    "visualLandmark": "Beside Security X-Ray Baggage Scanner, Pillar E1",
+    "description": "Terminal 1 East Entry foyer, directly facing main concourse and VIP lounge.",
+    "checksum": "A7B2C91D",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 1.8,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 120
+    }
+  },
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-T1-TICKET",
+    "name": "Terminal 1 Ticketing Hall Checkpoint",
+    "level": 0,
+    "associatedNodeId": "node_t1_ticket",
+    "coordinates": { "x": 1680.0, "y": 1180.0 },
+    "visualLandmark": "Pillar #4 in front of General Unreserved UTS Window #5",
+    "description": "High-traffic ticketing concourse with direct access to Foot-Over-Bridge and Subway.",
+    "checksum": "83DF12A4",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 1.5,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 120
+    }
+  },
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-T1-LIFT2",
+    "name": "Terminal 1 Concourse Lift 2 Checkpoint",
+    "level": 0,
+    "associatedNodeId": "node_t1_lift2_l0",
+    "coordinates": { "x": 1661.7, "y": 1110.6 },
+    "visualLandmark": "Lift 2 Door Entrance Arch, Divyangjan Wheelchair Signage",
+    "description": "Primary accessible vertical portal linking Ground Concourse with Subway (Level -1).",
+    "checksum": "4C90B551",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 2.0,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 110
+    }
+  },
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-PF1-CTR",
+    "name": "Platform 1 Central Checkpoint",
+    "level": 0,
+    "associatedNodeId": "node_pf1_center",
+    "coordinates": { "x": 1520.0, "y": 980.9 },
+    "visualLandmark": "Electronic Coach Indicator #8, beside KSR Station Water ATM",
+    "description": "Central boarding zone on Platform 1, adjacent to AC waiting halls.",
+    "checksum": "9E2178B0",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 2.2,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 120
+    }
+  },
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-PF1-RAMP",
+    "name": "Platform 1 East Ramp to FOB 2",
+    "level": 0,
+    "associatedNodeId": "node_pf1_fob2_ramp",
+    "coordinates": { "x": 2500.0, "y": 980.9 },
+    "visualLandmark": "Beginning of the gentle incline ramp leading up to FOB 2",
+    "description": "Wheelchair-accessible ramp portal connecting Platform 1 to Foot-Over-Bridge 2.",
+    "checksum": "3A74EF19",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 1.9,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 120
+    }
+  },
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-FOB2-PF1",
+    "name": "FOB 2 Platform 1 Deck Checkpoint",
+    "level": 1,
+    "associatedNodeId": "node_fob2_pf1",
+    "coordinates": { "x": 2618.0, "y": 973.8 },
+    "visualLandmark": "FOB 2 Span 1 overhead pillar, overlooking Platform 1 track",
+    "description": "Elevated footbridge portal directly above Platform 1 east concourse.",
+    "checksum": "F4B08821",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 2.4,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 120
+    }
+  },
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-FOB2-MID",
+    "name": "FOB 2 Central Skywalk Checkpoint",
+    "level": 1,
+    "associatedNodeId": "node_fob2_pf4_5",
+    "coordinates": { "x": 2618.0, "y": 720.0 },
+    "visualLandmark": "Mid-span intersection between Platform 4/5 staircases and Lift 1",
+    "description": "Central junction of FOB 2 allowing access to Platforms 1 through 10.",
+    "checksum": "119AB0E2",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 2.5,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 120
+    }
+  },
+  {
+    "version": 1,
+    "stationCode": "SBC",
+    "checkpointId": "CP-SUBWAY-CTR",
+    "name": "Subway Central Corridor Checkpoint",
+    "level": -1,
+    "associatedNodeId": "node_subway_t1_l_minus_1",
+    "coordinates": { "x": 1547.2, "y": 1175.7 },
+    "visualLandmark": "Underground tiled column under T1 entrance stairs",
+    "description": "Air-conditioned inter-platform pedestrian subway with ramp landings.",
+    "checksum": "D78041C3",
+    "accessibilityNotes": {
+      "wheelchairClearanceMeters": 2.0,
+      "tactilePavingPresent": true,
+      "braillePlateHeightCm": 110
+    }
+  }
+]
+

@@ -1,0 +1,116 @@
+[
+  {
+    "id": "first_time",
+    "name": "General / First-Time",
+    "tagline": "Simple routes with clear landmarks & fewer turns",
+    "icon": "compass-outline",
+    "description": "Prioritizes high-visibility landmarks (Ticket Counter, Main Concourse, FOB), minimal turns, and easy straightforward corridors.",
+    "weights": {
+      "walkway": 1.0,
+      "ramp": 1.1,
+      "lift": 1.1,
+      "stairs": 1.4,
+      "escalator": 1.2,
+      "turnPenalty": 15.0,
+      "stairAvoidance": false,
+      "accessibilityPenaltyFactor": 1.0,
+      "safetyPenaltyFactor": 1.0,
+      "uncertaintyPenaltyFactor": 1.0
+    }
+  },
+  {
+    "id": "mobility_disabled",
+    "name": "Wheelchair / Mobility",
+    "tagline": "100% Wheelchair accessible, stairs strictly prohibited",
+    "icon": "wheelchair-outline",
+    "description": "Mandatory step-free routing. Stairs and non-wheelchair escalators are strictly prohibited (infinite cost). Prefers accessible Lifts and 1:12 Ramps.",
+    "weights": {
+      "walkway": 1.0,
+      "ramp": 0.8,
+      "lift": 0.7,
+      "stairs": 999999,
+      "escalator": 999999,
+      "turnPenalty": 8.0,
+      "stairAvoidance": true,
+      "accessibilityPenaltyFactor": 5.0,
+      "safetyPenaltyFactor": 2.5,
+      "uncertaintyPenaltyFactor": 2.0
+    }
+  },
+  {
+    "id": "elderly",
+    "name": "Elderly Person",
+    "tagline": "Minimal walking, avoid stairs, prefer lifts & ramps",
+    "icon": "walk-outline",
+    "description": "Minimizes walking distance, heavily penalizes stairs (+5x cost), and favors smooth lifts and ramps with ample resting areas.",
+    "weights": {
+      "walkway": 1.3,
+      "ramp": 1.0,
+      "lift": 0.8,
+      "stairs": 5.0,
+      "escalator": 2.0,
+      "turnPenalty": 10.0,
+      "stairAvoidance": false,
+      "accessibilityPenaltyFactor": 3.0,
+      "safetyPenaltyFactor": 2.0,
+      "uncertaintyPenaltyFactor": 1.8
+    }
+  },
+  {
+    "id": "visually_impaired",
+    "name": "Blind / Visually Impaired",
+    "tagline": "Voice guidance, tactile landmarks, fewest turns",
+    "icon": "ear-outline",
+    "description": "Optimized for continuous audio feedback, tactile pathways, and long straight passages with predictable junctions.",
+    "weights": {
+      "walkway": 1.1,
+      "ramp": 1.2,
+      "lift": 1.2,
+      "stairs": 2.5,
+      "escalator": 3.0,
+      "turnPenalty": 20.0,
+      "stairAvoidance": false,
+      "accessibilityPenaltyFactor": 2.5,
+      "safetyPenaltyFactor": 3.0,
+      "uncertaintyPenaltyFactor": 3.0
+    }
+  },
+  {
+    "id": "luggage_heavy",
+    "name": "Luggage-Heavy",
+    "tagline": "Avoid stairs & tight escalators, prioritize lifts & wide ramps",
+    "icon": "briefcase-outline",
+    "description": "Optimized for passengers with suitcases, trolley bags, and parcels. Heavily penalizes stairs (+4.5x) and prefers level walkways, wide ramps, and elevators.",
+    "weights": {
+      "walkway": 1.0,
+      "ramp": 0.85,
+      "lift": 0.75,
+      "stairs": 4.5,
+      "escalator": 2.5,
+      "turnPenalty": 12.0,
+      "stairAvoidance": false,
+      "accessibilityPenaltyFactor": 2.5,
+      "safetyPenaltyFactor": 1.5,
+      "uncertaintyPenaltyFactor": 1.5
+    }
+  },
+  {
+    "id": "child",
+    "name": "Child / Family",
+    "tagline": "Safe, simple paths with high visibility",
+    "icon": "happy-outline",
+    "description": "Avoids isolated or complex corridors; keeps instructions clear, short, and landmark-driven.",
+    "weights": {
+      "walkway": 1.0,
+      "ramp": 1.1,
+      "lift": 1.2,
+      "stairs": 2.0,
+      "escalator": 2.5,
+      "turnPenalty": 12.0,
+      "stairAvoidance": false,
+      "accessibilityPenaltyFactor": 1.5,
+      "safetyPenaltyFactor": 2.5,
+      "uncertaintyPenaltyFactor": 1.5
+    }
+  }
+]

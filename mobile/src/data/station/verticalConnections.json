@@ -1,0 +1,152 @@
+[
+  {
+    "id": "vc_lift_1",
+    "name": "Lift 1 (PF 7/8 \u2194 FOB 2)",
+    "type": "LIFT",
+    "coordinates": {
+      "x": 2586.7,
+      "y": 434.2
+    },
+    "fromLevel": 0,
+    "toLevel": 1,
+    "fromNode": "node_pf8_lift1",
+    "toNode": "node_fob2_pf7_8",
+    "accessible": true,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_lift_2",
+    "name": "Lift 2 (T1 Concourse \u2194 Subway)",
+    "type": "LIFT",
+    "coordinates": {
+      "x": 1661.7,
+      "y": 1110.6
+    },
+    "fromLevel": 0,
+    "toLevel": -1,
+    "fromNode": "node_t1_lift2_l0",
+    "toNode": "node_subway_lift2_l_minus_1",
+    "accessible": true,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_lift_3",
+    "name": "Lift 3 (PF 1 East \u2194 FOB 2)",
+    "type": "LIFT",
+    "coordinates": {
+      "x": 2659.2,
+      "y": 973.8
+    },
+    "fromLevel": 0,
+    "toLevel": 1,
+    "fromNode": "node_pf1_lift3",
+    "toNode": "node_fob2_pf1",
+    "accessible": true,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_ramp_1",
+    "name": "Ramp 1 (PF 7/8 \u2194 FOB 2)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 2702.1,
+      "y": 465.4
+    },
+    "fromLevel": 0,
+    "toLevel": 1,
+    "fromNode": "node_pf8_ramp1",
+    "toNode": "node_fob2_pf7_8",
+    "accessible": true,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_ramp_2",
+    "name": "Ramp 2 (PF 4/5 \u2194 FOB 2)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 2550.0,
+      "y": 725.0
+    },
+    "fromLevel": 0,
+    "toLevel": 1,
+    "fromNode": "node_pf4_5_ramp2",
+    "toNode": "node_fob2_pf4_5",
+    "accessible": true,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_ramp_3",
+    "name": "Ramp 3 (PF 1/2 \u2194 FOB 2)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 2586.0,
+      "y": 1000.0
+    },
+    "fromLevel": 0,
+    "toLevel": 1,
+    "fromNode": "node_pf1_2_ramp3",
+    "toNode": "node_fob2_pf1",
+    "accessible": true,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_ramp_t1_subway",
+    "name": "Subway Ramp (T1 Concourse \u2194 Subway)",
+    "type": "RAMP",
+    "coordinates": {
+      "x": 1547.2,
+      "y": 1175.7
+    },
+    "fromLevel": 0,
+    "toLevel": -1,
+    "fromNode": "node_t1_ramp_subway_l0",
+    "toNode": "node_subway_t1_l_minus_1",
+    "accessible": true,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_stair_pf7_8_fob2",
+    "name": "Stair (PF 7/8 \u2194 FOB 2)",
+    "type": "STAIR",
+    "coordinates": {
+      "x": 2603.0,
+      "y": 440.0
+    },
+    "fromLevel": 0,
+    "toLevel": 1,
+    "fromNode": "node_pf8_stair_fob2",
+    "toNode": "node_fob2_pf7_8",
+    "accessible": false,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_stair_pf1_fob2",
+    "name": "Stair (PF 1 \u2194 FOB 2)",
+    "type": "STAIR",
+    "coordinates": {
+      "x": 2620.0,
+      "y": 960.0
+    },
+    "fromLevel": 0,
+    "toLevel": 1,
+    "fromNode": "node_pf1_stair_fob2",
+    "toNode": "node_fob2_pf1",
+    "accessible": false,
+    "status": "OPEN"
+  },
+  {
+    "id": "vc_stair_t1_subway",
+    "name": "Stair (T1 \u2194 Subway)",
+    "type": "STAIR",
+    "coordinates": {
+      "x": 1354.5,
+      "y": 1144.1
+    },
+    "fromLevel": 0,
+    "toLevel": -1,
+    "fromNode": "node_t1_stair_subway_l0",
+    "toNode": "node_subway_t1_l_minus_1",
+    "accessible": false,
+    "status": "OPEN"
+  }
+]

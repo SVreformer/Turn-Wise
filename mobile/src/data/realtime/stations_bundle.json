@@ -1,0 +1,1241 @@
+[
+  {
+    "code": "AWY",
+    "name": "Aluva",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 76.356508,
+      "lat": 10.108163
+    },
+    "platforms": 3,
+    "division": "TVC",
+    "city": "Kochi / Ernakulam",
+    "cityId": "kochi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": false
+  },
+  {
+    "code": "ERN",
+    "name": "Ernakulam Town (North)",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 76.2861,
+      "lat": 9.991582000000001
+    },
+    "platforms": 2,
+    "division": "TVC",
+    "city": "Kochi / Ernakulam",
+    "cityId": "kochi",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "DEC",
+    "name": "Delhi Cantt",
+    "state": "Delhi NCT",
+    "zone": "NR",
+    "address": "Mayapuri Industrial Area Phase II/Lajwanti Garden, Delhi NCT",
+    "coordinates": {
+      "lng": 77.116577,
+      "lat": 28.613534
+    },
+    "platforms": 4,
+    "division": "DLI",
+    "city": "New Delhi / NCR",
+    "cityId": "delhi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "SBC",
+    "name": "KSR Bengaluru (City Station)",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "Bengaluru, Karnataka",
+    "coordinates": {
+      "lng": 77.56808299999999,
+      "lat": 12.977595
+    },
+    "platforms": 10,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "SBT",
+    "name": "Sabarmati Junction",
+    "state": "",
+    "zone": "WR",
+    "address": "",
+    "coordinates": {
+      "lng": 72.58928200000001,
+      "lat": 23.077545999999998
+    },
+    "platforms": 5,
+    "division": "ADI",
+    "city": "Ahmedabad",
+    "cityId": "ahmedabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "TBM",
+    "name": "Tambaram",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 80.1191573807,
+      "lat": 12.926035689399999
+    },
+    "platforms": 8,
+    "division": "MAS",
+    "city": "Chennai",
+    "cityId": "chennai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "SHM",
+    "name": "Shalimar",
+    "state": "West Bengal",
+    "zone": "SER",
+    "address": "Howrah/Kolkata, West Bengal",
+    "coordinates": {
+      "lng": 88.315615,
+      "lat": 22.555508
+    },
+    "platforms": 5,
+    "division": "KGP",
+    "city": "Kolkata",
+    "cityId": "kolkata",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "MS",
+    "name": "Chennai Egmore",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 80.260193,
+      "lat": 13.077677999999999
+    },
+    "platforms": 11,
+    "division": "MAS",
+    "city": "Chennai",
+    "cityId": "chennai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "ERS",
+    "name": "Ernakulam Junction (South)",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 76.290672,
+      "lat": 9.969541999999999
+    },
+    "platforms": 6,
+    "division": "TVC",
+    "city": "Kochi / Ernakulam",
+    "cityId": "kochi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "PER",
+    "name": "Perambur",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 80.24453299999999,
+      "lat": 13.10702
+    },
+    "platforms": 4,
+    "division": "MAS",
+    "city": "Chennai",
+    "cityId": "chennai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "MAS",
+    "name": "Chennai Central (Puratchi Thalaivar Dr. MGR)",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 80.27485630000001,
+      "lat": 13.0847613
+    },
+    "platforms": 17,
+    "division": "MAS",
+    "city": "Chennai",
+    "cityId": "chennai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "AP",
+    "name": "Ashokapuram (Mysuru Terminal)",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "Mysore, Karnataka",
+    "coordinates": {
+      "lng": 76.635315,
+      "lat": 12.273762000000001
+    },
+    "platforms": 5,
+    "division": "MYS",
+    "city": "Mysuru (Mysore)",
+    "cityId": "mysuru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "JP",
+    "name": "Jaipur Junction",
+    "state": "",
+    "zone": "NWR",
+    "address": "",
+    "coordinates": {
+      "lng": 75.786923,
+      "lat": 26.920203
+    },
+    "platforms": 8,
+    "division": "JP",
+    "city": "Jaipur",
+    "cityId": "jaipur",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "KYN",
+    "name": "Kalyan Junction",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 73.12974,
+      "lat": 19.234716000000002
+    },
+    "platforms": 8,
+    "division": "CR",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "BLGA",
+    "name": "Belagola",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "Belagula, Karnataka",
+    "coordinates": {
+      "lng": 76.5887032642,
+      "lat": 12.385698676899999
+    },
+    "platforms": 2,
+    "division": "MYS",
+    "city": "Mysuru (Mysore)",
+    "cityId": "mysuru",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "AVD",
+    "name": "Avadi",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 80.10051800000001,
+      "lat": 13.118247
+    },
+    "platforms": 6,
+    "division": "MAS",
+    "city": "Chennai",
+    "cityId": "chennai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "TNA",
+    "name": "Thane",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 72.97541700000001,
+      "lat": 19.185757000000002
+    },
+    "platforms": 10,
+    "division": "CR",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "SRC",
+    "name": "Santragachi Junction",
+    "state": "",
+    "zone": "SER",
+    "address": "",
+    "coordinates": {
+      "lng": 88.284011,
+      "lat": 22.58393
+    },
+    "platforms": 6,
+    "division": "KGP",
+    "city": "Kolkata",
+    "cityId": "kolkata",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "LKO",
+    "name": "Lucknow Charbagh (NR)",
+    "state": "",
+    "zone": "NR",
+    "address": "",
+    "coordinates": {
+      "lng": 80.925291,
+      "lat": 26.830675
+    },
+    "platforms": 9,
+    "division": "LKO",
+    "city": "Lucknow",
+    "cityId": "lucknow",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "DLI",
+    "name": "Old Delhi Junction",
+    "state": "Delhi NCT",
+    "zone": "NR",
+    "address": "Shyama Prasad Mukherji Marg, Delhi NCT",
+    "coordinates": {
+      "lng": 77.228356,
+      "lat": 28.661815999999998
+    },
+    "platforms": 16,
+    "division": "DLI",
+    "city": "New Delhi / NCR",
+    "cityId": "delhi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "LTT",
+    "name": "Lokmanya Tilak Terminus (Kurla)",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 72.89173899999999,
+      "lat": 19.070320000000002
+    },
+    "platforms": 5,
+    "division": "CR",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "GNC",
+    "name": "Gandhinagar Capital",
+    "state": "Gujarat",
+    "zone": "WR",
+    "address": "Gandhinagar, Gujarat",
+    "coordinates": {
+      "lng": 72.62916200000001,
+      "lat": 23.233379
+    },
+    "platforms": 3,
+    "division": "ADI",
+    "city": "Ahmedabad",
+    "cityId": "ahmedabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": false
+  },
+  {
+    "code": "HYB",
+    "name": "Hyderabad Deccan (Nampally)",
+    "state": "Andhra Pradesh",
+    "zone": "SCR",
+    "address": "Hyderabad, Andhra Pradesh",
+    "coordinates": {
+      "lng": 78.467377,
+      "lat": 17.393362999999997
+    },
+    "platforms": 6,
+    "division": "SC",
+    "city": "Hyderabad / Secunderabad",
+    "cityId": "hyderabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "KGI",
+    "name": "Kengeri",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "Bengaluru, Karnataka",
+    "coordinates": {
+      "lng": 77.48431,
+      "lat": 12.918047
+    },
+    "platforms": 4,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "NHY",
+    "name": "Naganahalli",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "Mysore District, Karnataka",
+    "coordinates": {
+      "lng": 76.651081,
+      "lat": 12.380243
+    },
+    "platforms": 2,
+    "division": "MYS",
+    "city": "Mysuru (Mysore)",
+    "cityId": "mysuru",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "PNVL",
+    "name": "Panvel Junction",
+    "state": "Maharashtra",
+    "zone": "CR",
+    "address": "Panvel, Maharashtra",
+    "coordinates": {
+      "lng": 73.121756,
+      "lat": 18.990918999999998
+    },
+    "platforms": 7,
+    "division": "CR",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "BNC",
+    "name": "Bengaluru Cantt",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "Bengaluru, Karnataka",
+    "coordinates": {
+      "lng": 77.59932690000001,
+      "lat": 12.9936735
+    },
+    "platforms": 4,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "BDTS",
+    "name": "Bandra Terminus",
+    "state": "Maharashtra",
+    "zone": "WR",
+    "address": "Mumbai, Maharashtra",
+    "coordinates": {
+      "lng": 72.840535,
+      "lat": 19.061911
+    },
+    "platforms": 9,
+    "division": "WR",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "DKBJ",
+    "name": "Dahar Ka Balaji",
+    "state": "Rajasthan",
+    "zone": "NWR",
+    "address": "Jaipur, Rajasthan",
+    "coordinates": {
+      "lng": 75.765669,
+      "lat": 26.944321
+    },
+    "platforms": 2,
+    "division": "JP",
+    "city": "Jaipur",
+    "cityId": "jaipur",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "DEE",
+    "name": "Delhi Sarai Rohilla",
+    "state": "Delhi NCT",
+    "zone": "NR",
+    "address": "New Rohtak road, Delhi NCT",
+    "coordinates": {
+      "lng": 77.187106,
+      "lat": 28.662992
+    },
+    "platforms": 5,
+    "division": "DLI",
+    "city": "New Delhi / NCR",
+    "cityId": "delhi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "KDO",
+    "name": "Kadakola",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "Mysore District, Karnataka",
+    "coordinates": {
+      "lng": 76.663729,
+      "lat": 12.190406999999999
+    },
+    "platforms": 2,
+    "division": "MYS",
+    "city": "Mysuru (Mysore)",
+    "cityId": "mysuru",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "MYS",
+    "name": "Mysuru Junction (Mysore City)",
+    "state": "Karnataka",
+    "zone": "SWR",
+    "address": "JLB Road Mysore, Karnataka",
+    "coordinates": {
+      "lng": 76.646013,
+      "lat": 12.318946
+    },
+    "platforms": 6,
+    "division": "MYS",
+    "city": "Mysuru (Mysore)",
+    "cityId": "mysuru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "PPTA",
+    "name": "Patliputra Junction",
+    "state": "",
+    "zone": "ECR",
+    "address": "",
+    "coordinates": {
+      "lng": 85.068505,
+      "lat": 25.621426
+    },
+    "platforms": 3,
+    "division": "DNR",
+    "city": "Patna",
+    "cityId": "patna",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": false
+  },
+  {
+    "code": "BVI",
+    "name": "Borivali",
+    "state": "Maharashtra",
+    "zone": "WR",
+    "address": "Mumbai, Maharashtra",
+    "coordinates": {
+      "lng": 72.85641199999999,
+      "lat": 19.228739
+    },
+    "platforms": 10,
+    "division": "WR",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "MSB",
+    "name": "Chennai Beach",
+    "state": "",
+    "zone": "SR",
+    "address": "",
+    "coordinates": {
+      "lng": 80.291601,
+      "lat": 13.09034
+    },
+    "platforms": 8,
+    "division": "MAS",
+    "city": "Chennai",
+    "cityId": "chennai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "LNL",
+    "name": "Lonavala",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 73.407657,
+      "lat": 18.748883
+    },
+    "platforms": 3,
+    "division": "PUNE",
+    "city": "Pune",
+    "cityId": "pune",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": false
+  },
+  {
+    "code": "KK",
+    "name": "Khadki",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 73.840513,
+      "lat": 18.563010000000002
+    },
+    "platforms": 2,
+    "division": "PUNE",
+    "city": "Pune",
+    "cityId": "pune",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "SVJR",
+    "name": "Shivajinagar",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 73.851147,
+      "lat": 18.531738
+    },
+    "platforms": 2,
+    "division": "PUNE",
+    "city": "Pune",
+    "cityId": "pune",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "DR",
+    "name": "Dadar Junction",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 72.842972,
+      "lat": 19.017179
+    },
+    "platforms": 15,
+    "division": "CR/WR",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "LPI",
+    "name": "Lingampalli",
+    "state": "",
+    "zone": "SCR",
+    "address": "",
+    "coordinates": {
+      "lng": 78.31677400000001,
+      "lat": 17.482874000000002
+    },
+    "platforms": 6,
+    "division": "SC",
+    "city": "Hyderabad / Secunderabad",
+    "cityId": "hyderabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "BMT",
+    "name": "Begumpet",
+    "state": "",
+    "zone": "SCR",
+    "address": "",
+    "coordinates": {
+      "lng": 78.4586266,
+      "lat": 17.4388739
+    },
+    "platforms": 2,
+    "division": "SC",
+    "city": "Hyderabad / Secunderabad",
+    "cityId": "hyderabad",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "SC",
+    "name": "Secunderabad Junction",
+    "state": "",
+    "zone": "SCR",
+    "address": "",
+    "coordinates": {
+      "lng": 78.50148100000001,
+      "lat": 17.433146999999998
+    },
+    "platforms": 10,
+    "division": "SC",
+    "city": "Hyderabad / Secunderabad",
+    "cityId": "hyderabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "CHZ",
+    "name": "Charlapalli Terminal",
+    "state": "",
+    "zone": "SCR",
+    "address": "",
+    "coordinates": {
+      "lng": 78.605619,
+      "lat": 17.457672000000002
+    },
+    "platforms": 4,
+    "division": "SC",
+    "city": "Hyderabad / Secunderabad",
+    "cityId": "hyderabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "YNK",
+    "name": "Yelahanka Junction",
+    "state": "",
+    "zone": "SWR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.593069,
+      "lat": 13.102795
+    },
+    "platforms": 4,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "BNZ",
+    "name": "Badshahnagar",
+    "state": "",
+    "zone": "NER",
+    "address": "",
+    "coordinates": {
+      "lng": 80.9613606,
+      "lat": 26.8686134
+    },
+    "platforms": 2,
+    "division": "LJN",
+    "city": "Lucknow",
+    "cityId": "lucknow",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "YPR",
+    "name": "Yesvantpur Junction",
+    "state": "",
+    "zone": "SWR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.55117399999999,
+      "lat": 13.022839000000001
+    },
+    "platforms": 6,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "KJM",
+    "name": "Krishnarajapuram",
+    "state": "",
+    "zone": "SWR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.674016,
+      "lat": 13.000534
+    },
+    "platforms": 4,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "WFD",
+    "name": "Whitefield",
+    "state": "",
+    "zone": "SWR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.76130500000001,
+      "lat": 12.995253
+    },
+    "platforms": 4,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "BYPL",
+    "name": "Baiyyappanahalli",
+    "state": "",
+    "zone": "SWR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.650886,
+      "lat": 12.990198
+    },
+    "platforms": 2,
+    "division": "SBC",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "LJN",
+    "name": "Lucknow Junction (NER)",
+    "state": "",
+    "zone": "NER",
+    "address": "",
+    "coordinates": {
+      "lng": 80.91858699999999,
+      "lat": 26.831967000000002
+    },
+    "platforms": 6,
+    "division": "LJN",
+    "city": "Lucknow",
+    "cityId": "lucknow",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "ANVT",
+    "name": "Anand Vihar Terminal",
+    "state": "",
+    "zone": "NR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.31521255,
+      "lat": 28.650503565399998
+    },
+    "platforms": 7,
+    "division": "DLI",
+    "city": "New Delhi / NCR",
+    "cityId": "delhi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "PUNE",
+    "name": "Pune Junction",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 73.873086,
+      "lat": 18.529378
+    },
+    "platforms": 6,
+    "division": "PUNE",
+    "city": "Pune",
+    "cityId": "pune",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "HDP",
+    "name": "Hadapsar Terminal",
+    "state": "",
+    "zone": "CR",
+    "address": "",
+    "coordinates": {
+      "lng": 73.927844,
+      "lat": 18.526887000000002
+    },
+    "platforms": 3,
+    "division": "PUNE",
+    "city": "Pune",
+    "cityId": "pune",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": false
+  },
+  {
+    "code": "GZB",
+    "name": "Ghaziabad Junction",
+    "state": "",
+    "zone": "NR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.431099,
+      "lat": 28.649702
+    },
+    "platforms": 6,
+    "division": "DLI",
+    "city": "New Delhi / NCR",
+    "cityId": "delhi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "DNR",
+    "name": "Danapur",
+    "state": "",
+    "zone": "ECR",
+    "address": "",
+    "coordinates": {
+      "lng": 85.044629,
+      "lat": 25.581921
+    },
+    "platforms": 5,
+    "division": "DNR",
+    "city": "Patna",
+    "cityId": "patna",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "PNBE",
+    "name": "Patna Junction",
+    "state": "",
+    "zone": "ECR",
+    "address": "",
+    "coordinates": {
+      "lng": 85.136824,
+      "lat": 25.60256
+    },
+    "platforms": 10,
+    "division": "DNR",
+    "city": "Patna",
+    "cityId": "patna",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "RJPB",
+    "name": "Rajendra Nagar Terminal",
+    "state": "",
+    "zone": "ECR",
+    "address": "",
+    "coordinates": {
+      "lng": 85.162449,
+      "lat": 25.603351
+    },
+    "platforms": 4,
+    "division": "DNR",
+    "city": "Patna",
+    "cityId": "patna",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "KOAA",
+    "name": "Kolkata Terminus (Chitpur)",
+    "state": "",
+    "zone": "ER",
+    "address": "",
+    "coordinates": {
+      "lng": 88.385179,
+      "lat": 22.601174999999998
+    },
+    "platforms": 5,
+    "division": "SDAH",
+    "city": "Kolkata",
+    "cityId": "kolkata",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "GADJ",
+    "name": "Gandhinagar Jaipur",
+    "state": "",
+    "zone": "NWR",
+    "address": "",
+    "coordinates": {
+      "lng": 75.79827999999999,
+      "lat": 26.873067000000002
+    },
+    "platforms": 2,
+    "division": "JP",
+    "city": "Jaipur",
+    "cityId": "jaipur",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "SDAH",
+    "name": "Sealdah",
+    "state": "",
+    "zone": "ER",
+    "address": "",
+    "coordinates": {
+      "lng": 88.374713,
+      "lat": 22.566758
+    },
+    "platforms": 21,
+    "division": "SDAH",
+    "city": "Kolkata",
+    "cityId": "kolkata",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "HWH",
+    "name": "Howrah Junction",
+    "state": "",
+    "zone": "ER/SER",
+    "address": "",
+    "coordinates": {
+      "lng": 88.34099900000001,
+      "lat": 22.584077999999998
+    },
+    "platforms": 23,
+    "division": "HWH",
+    "city": "Kolkata",
+    "cityId": "kolkata",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "NZM",
+    "name": "Hazrat Nizamuddin",
+    "state": "",
+    "zone": "NR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.254249,
+      "lat": 28.587329999999998
+    },
+    "platforms": 9,
+    "division": "DLI",
+    "city": "New Delhi / NCR",
+    "cityId": "delhi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "NDLS",
+    "name": "New Delhi Railway Station",
+    "state": "",
+    "zone": "NR",
+    "address": "",
+    "coordinates": {
+      "lng": 77.22000399999999,
+      "lat": 28.642314
+    },
+    "platforms": 16,
+    "division": "DLI",
+    "city": "New Delhi / NCR",
+    "cityId": "delhi",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "KCG",
+    "name": "Kacheguda",
+    "state": "",
+    "zone": "SCR",
+    "address": "",
+    "coordinates": {
+      "lng": 78.499756,
+      "lat": 17.389561
+    },
+    "platforms": 5,
+    "division": "HYB",
+    "city": "Hyderabad / Secunderabad",
+    "cityId": "hyderabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "ADI",
+    "name": "Ahmedabad Junction (Kalupur)",
+    "state": "",
+    "zone": "WR",
+    "address": "",
+    "coordinates": {
+      "lng": 72.601516,
+      "lat": 23.025515
+    },
+    "platforms": 12,
+    "division": "ADI",
+    "city": "Ahmedabad",
+    "cityId": "ahmedabad",
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true
+  },
+  {
+    "code": "MAN",
+    "name": "Maninagar",
+    "state": "",
+    "zone": "WR",
+    "address": "",
+    "coordinates": {
+      "lng": 72.610413,
+      "lat": 23.000142
+    },
+    "platforms": 2,
+    "division": "ADI",
+    "city": "Ahmedabad",
+    "cityId": "ahmedabad",
+    "wheelchairAccessible": true,
+    "hasLifts": false,
+    "hasEscalators": false
+  },
+  {
+    "code": "SMVB",
+    "name": "Sir M. Visvesvaraya Terminal (Baiyappanahalli)",
+    "state": "Karnataka",
+    "city": "Bengaluru",
+    "cityId": "bengaluru",
+    "division": "SBC",
+    "zone": "SWR",
+    "platforms": 8,
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true,
+    "coordinates": {
+      "lat": 12.9716,
+      "lng": 77.5946
+    }
+  },
+  {
+    "code": "CSMT",
+    "name": "Chhatrapati Shivaji Maharaj Terminus",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "division": "CR",
+    "zone": "CR",
+    "platforms": 18,
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true,
+    "coordinates": {
+      "lat": 18.94,
+      "lng": 72.8354
+    }
+  },
+  {
+    "code": "MMCT",
+    "name": "Mumbai Central",
+    "state": "Maharashtra",
+    "city": "Mumbai",
+    "cityId": "mumbai",
+    "division": "WR",
+    "zone": "WR",
+    "platforms": 9,
+    "wheelchairAccessible": true,
+    "hasLifts": true,
+    "hasEscalators": true,
+    "coordinates": {
+      "lat": 18.94,
+      "lng": 72.8354
+    }
+  }
+]

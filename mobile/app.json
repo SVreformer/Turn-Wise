@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "Turn Wise",
+    "slug": "turn-wise",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FFFFFF"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.turnwise.ksr",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Turn Wise uses the camera to scan station QR anchor checkpoints for high-precision indoor positioning.",
+        "NSLocationWhenInUseUsageDescription": "Turn Wise uses your location to assist with station entry detection and indoor positioning at KSR Bengaluru.",
+        "NSMotionUsageDescription": "Turn Wise tracks physical walking steps and device heading to animate your live location along station walkways."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.turnwise.ksr",
+      "permissions": [
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "CAMERA",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACTIVITY_RECOGNITION",
+        "VIBRATE"
+      ]
+    },
+    "plugins": [
+      "expo-asset"
+    ]
+  }
+}

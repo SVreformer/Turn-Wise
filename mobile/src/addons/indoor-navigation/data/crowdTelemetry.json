@@ -1,0 +1,53 @@
+[
+  {
+    "zoneId": "ZONE-T1-MAIN",
+    "zoneName": "Terminal 1 East Main Foyer",
+    "level": 0,
+    "density": 1.4,
+    "status": "MODERATE",
+    "timestamp": 1798883600000,
+    "verified": true,
+    "chokePoint": false
+  },
+  {
+    "zoneId": "ZONE-T1-TICKET",
+    "zoneName": "Terminal 1 UTS Ticketing Hall",
+    "level": 0,
+    "density": 2.8,
+    "status": "HIGH",
+    "timestamp": 1798883600000,
+    "verified": true,
+    "chokePoint": true
+  },
+  {
+    "zoneId": "ZONE-FOB2-MID",
+    "zoneName": "FOB 2 Central Skywalk",
+    "level": 1,
+    "density": 3.1,
+    "status": "HIGH",
+    "timestamp": 1798883600000,
+    "verified": true,
+    "chokePoint": true
+  },
+  {
+    "zoneId": "ZONE-PF1-CTR",
+    "zoneName": "Platform 1 Central Boarding",
+    "level": 0,
+    "density": 0.8,
+    "status": "LOW",
+    "timestamp": 1798883600000,
+    "verified": true,
+    "chokePoint": false
+  },
+  {
+    "zoneId": "ZONE-SUBWAY-CTR",
+    "zoneName": "Inter-Platform Subway Corridor",
+    "level": -1,
+    "density": 0.5,
+    "status": "LOW",
+    "timestamp": 1798883600000,
+    "verified": true,
+    "chokePoint": false
+  }
+]
+

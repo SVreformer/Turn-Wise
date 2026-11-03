@@ -1,0 +1,112 @@
+[
+  {
+    "id": "QR-KSR-T1-MAIN",
+    "name": "Terminal 1 Main Entrance Checkpoint",
+    "nodeId": "node_entry_t1_main_east",
+    "coordinates": {
+      "x": 1811.0,
+      "y": 1163.0
+    },
+    "level": 0,
+    "description": "Scanned at Terminal 1 East Entrance foyer beside security."
+  },
+  {
+    "id": "QR-KSR-T1-TICKET",
+    "name": "Terminal 1 Ticket Concourse Checkpoint",
+    "nodeId": "node_t1_ticket",
+    "coordinates": {
+      "x": 1680.0,
+      "y": 1180.0
+    },
+    "level": 0,
+    "description": "Scanned at Ticket Counters column #4."
+  },
+  {
+    "id": "QR-KSR-T1-LIFT2",
+    "name": "Terminal 1 Concourse Lift Checkpoint",
+    "nodeId": "node_t1_lift2_l0",
+    "coordinates": {
+      "x": 1661.7,
+      "y": 1110.6
+    },
+    "level": 0,
+    "description": "Scanned in front of Lift 2 doors."
+  },
+  {
+    "id": "QR-KSR-PF1-CENTER",
+    "name": "Platform 1 Central Checkpoint",
+    "nodeId": "node_pf1_center",
+    "coordinates": {
+      "x": 1520.0,
+      "y": 980.9
+    },
+    "level": 0,
+    "description": "Scanned at Platform 1 coach indicator #8."
+  },
+  {
+    "id": "QR-KSR-FOB2-PF1",
+    "name": "FOB 2 Platform 1 Junction Checkpoint",
+    "nodeId": "node_fob2_pf1",
+    "coordinates": {
+      "x": 2618.0,
+      "y": 973.8
+    },
+    "level": 1,
+    "description": "Scanned on FOB 2 above Platform 1, beside Lift 3."
+  },
+  {
+    "id": "QR-KSR-FOB2-PF8",
+    "name": "FOB 2 Platform 7/8 Junction Checkpoint",
+    "nodeId": "node_fob2_pf7_8",
+    "coordinates": {
+      "x": 2618.0,
+      "y": 434.2
+    },
+    "level": 1,
+    "description": "Scanned on FOB 2 above Platform 8, beside Lift 1."
+  },
+  {
+    "id": "QR-KSR-PF8-LIFT1",
+    "name": "Platform 8 Lift 1 Checkpoint",
+    "nodeId": "node_pf8_lift1",
+    "coordinates": {
+      "x": 2586.7,
+      "y": 434.2
+    },
+    "level": 0,
+    "description": "Scanned at Platform 8 ground level at Lift 1 entry."
+  },
+  {
+    "id": "QR-KSR-PF8-CENTER",
+    "name": "Platform 8 Boarding Checkpoint",
+    "nodeId": "node_pf8_center",
+    "coordinates": {
+      "x": 1450.0,
+      "y": 375.9
+    },
+    "level": 0,
+    "description": "Scanned at Platform 8 central waiting bench."
+  },
+  {
+    "id": "QR-KSR-T2-ENTRY",
+    "name": "Terminal 2 Entrance Checkpoint",
+    "nodeId": "node_entry_t2_east",
+    "coordinates": {
+      "x": 2973.4,
+      "y": 554.7
+    },
+    "level": 0,
+    "description": "Scanned at Terminal 2 east entrance porch."
+  },
+  {
+    "id": "QR-KSR-METRO-T3",
+    "name": "Metro Bridge Terminal 3 Checkpoint",
+    "nodeId": "node_entry_t3_metro",
+    "coordinates": {
+      "x": 745.0,
+      "y": 1280.0
+    },
+    "level": 0,
+    "description": "Scanned at Metro concourse entry gantry."
+  }
+]
