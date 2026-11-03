@@ -27,6 +27,7 @@ import { AccessibilityTruthModal } from '../components/AccessibilityTruthModal';
 import { CityStationSelectorModal } from '../components/CityStationSelectorModal';
 import { LiveTrainBoardModal } from '../components/LiveTrainBoardModal';
 import { BoardingSureModal } from '../components/BoardingSureModal';
+import { SpatialArVrModal } from '../components/SpatialArVrModal';
 import { ArrivalSummaryModal } from '../components/ArrivalSummaryModal';
 import { useBoardingSureStore } from '../store/boardingSureStore';
 import { AnimatedTrainTrackBackground } from '../components/AnimatedTrainTrackBackground';
@@ -75,6 +76,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   const [cityModalVisible, setCityModalVisible] = useState(false);
   const [liveBoardModalVisible, setLiveBoardModalVisible] = useState(false);
   const [boardingSureModalVisible, setBoardingSureModalVisible] = useState(false);
+  const [arVrModalVisible, setArVrModalVisible] = useState(false);
   const [tappedEntity, setTappedEntity] = useState<TappedEntity | null>(null);
   const [selectedMapLevel, setSelectedMapLevel] = useState<number | 'all'>('all');
 
@@ -846,6 +848,37 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               </View>
             </TouchableOpacity>
 
+            {/* HACKATHON PITCH HIGHLIGHT: AR / VR SPATIAL STATION NAVIGATOR */}
+            <TouchableOpacity
+              style={styles.arVrPitchCard}
+              onPress={() => setArVrModalVisible(true)}
+              activeOpacity={0.85}
+            >
+              <View style={styles.arVrPitchInner}>
+                <View style={styles.arVrIconCol}>
+                  <Text style={{ fontSize: 24 }}>🥽</Text>
+                </View>
+                <View style={{ flex: 1, marginLeft: 10 }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+                    <Text style={styles.arVrPitchTitle}>
+                      {language === 'kn' ? 'ಎಆರ್ / ವಿಆರ್ ಸ್ಪೇಷಿಯಲ್ ನ್ಯಾವಿಗೇಟರ್' : (language === 'hi' ? 'AR / VR 3D स्टेशन नेविगेशन' : 'AR / VR Spatial Station Navigator')}
+                    </Text>
+                    <View style={styles.arVrPitchBadge}>
+                      <Text style={styles.arVrPitchBadgeText}>HACKATHON 3D</Text>
+                    </View>
+                  </View>
+                  <Text style={styles.arVrPitchSub}>
+                    {language === 'kn'
+                      ? '360° ವಿಆರ್ ವ್ಯೂ ಮತ್ತು ಕ್ಯಾಮೆರಾ ಎಆರ್ ಮಾರ್ಗದರ್ಶನ'
+                      : (language === 'hi'
+                        ? '360° वीआर और संवर्धित वास्तविकता (AR) कैमरा नेविगेशन'
+                        : '360° immersive VR concourse tour & camera AR floating wayfinding')}
+                  </Text>
+                </View>
+                <Text style={styles.arVrPitchArrow}>➔</Text>
+              </View>
+            </TouchableOpacity>
+
             {/* SMART SPATIAL ACTIONS ROW: COACH NAVIGATION & TRUTH ENGINE */}
             <View style={styles.smartActionsRow}>
               <TouchableOpacity
@@ -1093,6 +1126,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 onCancelSelection={() => setMapSelectionMode('none')}
                 isFullscreen={false}
                 onToggleFullscreen={handleEnterFullscreen}
+                onOpenArVr={() => setArVrModalVisible(true)}
               />
             </View>
 
@@ -1219,6 +1253,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           onCancelSelection={() => setMapSelectionMode('none')}
           isFullscreen={true}
           onToggleFullscreen={handleExitFullscreen}
+          onOpenArVr={() => setArVrModalVisible(true)}
         />
 
         {/* Floating Route Preview Card if Route Exists and not navigating */}
@@ -1253,6 +1288,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             onPreviousStep={handlePreviousStep}
             onToggleVoice={toggleVoice}
             onStopNavigation={stopNavigation}
+            onOpenArVr={() => setArVrModalVisible(true)}
             onSimulateStep={() => {
               simulateLiveStep(1);
             }}
@@ -1392,6 +1428,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           scrollToResults();
         }}
         onOpenRescueMode={() => setRescueModalVisible(true)}
+      />
+
+      {/* HACKATHON PITCH HIGHLIGHT: AR / VR SPATIAL STATION NAVIGATOR MODAL */}
+      <SpatialArVrModal
+        visible={arVrModalVisible}
+        onClose={() => setArVrModalVisible(false)}
       />
     </SafeAreaView>
   );
@@ -1624,6 +1666,60 @@ const styles = StyleSheet.create({
   },
   liveBoardArrow: {
     color: '#10B981',
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginLeft: 8
+  },
+  arVrPitchCard: {
+    backgroundColor: '#0B1120',
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 12,
+    borderWidth: 1.5,
+    borderColor: '#0284C7',
+    shadowColor: '#0284C7',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 8,
+    elevation: 4
+  },
+  arVrPitchInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8
+  },
+  arVrIconCol: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: 'rgba(2, 132, 199, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  arVrPitchTitle: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '800'
+  },
+  arVrPitchBadge: {
+    backgroundColor: '#0284C7',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4
+  },
+  arVrPitchBadgeText: {
+    color: '#FFFFFF',
+    fontSize: 9,
+    fontWeight: '800',
+    letterSpacing: 0.5
+  },
+  arVrPitchSub: {
+    color: '#94A3B8',
+    fontSize: 11,
+    marginTop: 2
+  },
+  arVrPitchArrow: {
+    color: '#38BDF8',
     fontSize: 16,
     fontWeight: 'bold',
     marginLeft: 8

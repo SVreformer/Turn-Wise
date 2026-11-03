@@ -79,6 +79,7 @@ interface KsrMapProps {
   focusLocation?: Coordinates;
   autoPan?: boolean;
   userBearing?: number;
+  onOpenArVr?: () => void;
 }
 
 export const KsrMap: React.FC<KsrMapProps> = ({
@@ -98,7 +99,8 @@ export const KsrMap: React.FC<KsrMapProps> = ({
   activeStepCoordinates,
   focusLocation,
   autoPan = true,
-  userBearing
+  userBearing,
+  onOpenArVr
 }) => {
   const { selectedStation } = useNavigationStore();
 
@@ -354,6 +356,13 @@ export const KsrMap: React.FC<KsrMapProps> = ({
           </View>
 
           <View style={styles.topRightActions}>
+            {onOpenArVr && (
+              <TouchableOpacity onPress={onOpenArVr} style={styles.arVrHeaderBtn} activeOpacity={0.8}>
+                <Text style={styles.arVrHeaderBtnText}>
+                  🥽 3D/VR
+                </Text>
+              </TouchableOpacity>
+            )}
             {onToggleFullscreen && (
               <TouchableOpacity onPress={onToggleFullscreen} style={styles.fullscreenBtn} activeOpacity={0.8}>
                 <Text style={styles.fullscreenBtnText}>
@@ -919,6 +928,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.xs
+  },
+  arVrHeaderBtn: {
+    backgroundColor: '#0F172A',
+    paddingHorizontal: Spacing.xs + 4,
+    paddingVertical: 5,
+    borderRadius: Radii.sm,
+    borderWidth: 1,
+    borderColor: '#38BDF8',
+    ...Shadows.sm
+  },
+  arVrHeaderBtnText: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#38BDF8'
   },
   fullscreenBtn: {
     backgroundColor: Colors.bgPrimary,

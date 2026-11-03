@@ -17,6 +17,7 @@ interface NavigationBannerProps {
   onSimulateStep?: () => void;
   isAutoWalking?: boolean;
   onToggleAutoWalk?: () => void;
+  onOpenArVr?: () => void;
 
   // Real live indoor navigation props
   liveSteps?: number;
@@ -47,6 +48,7 @@ export const NavigationBanner: React.FC<NavigationBannerProps> = ({
   onSimulateStep,
   isAutoWalking = false,
   onToggleAutoWalk,
+  onOpenArVr,
   liveSteps = 0,
   liveDistanceMeters = 0,
   liveDistanceRemainingMeters,
@@ -272,6 +274,16 @@ export const NavigationBanner: React.FC<NavigationBannerProps> = ({
         </View>
 
         <View style={styles.actionsGroup}>
+          {onOpenArVr && (
+            <TouchableOpacity
+              style={styles.arNavBtn}
+              onPress={onOpenArVr}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.arNavBtnText}>🥽 AR</Text>
+            </TouchableOpacity>
+          )}
+
           <TouchableOpacity
             style={[styles.actionBtn, voiceEnabled && styles.actionBtnActive]}
             onPress={onToggleVoice}
@@ -601,6 +613,20 @@ const styles = StyleSheet.create({
   actionsGroup: {
     flexDirection: 'row',
     alignItems: 'center'
+  },
+  arNavBtn: {
+    backgroundColor: '#0F172A',
+    borderWidth: 1.5,
+    borderColor: '#38BDF8',
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 8,
+    marginRight: 6
+  },
+  arNavBtnText: {
+    color: '#38BDF8',
+    fontSize: 11,
+    fontWeight: '800'
   },
   actionBtn: {
     width: 36,
