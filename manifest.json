@@ -1,0 +1,25 @@
+{
+  "name": "TurnWise — Station Indoor Navigation",
+  "short_name": "TurnWise",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#165B33",
+  "description": "Accessibility-first indoor navigation for KSR Bengaluru railway station.",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
