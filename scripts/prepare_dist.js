@@ -73,3 +73,4 @@ console.log('Updated index.html with base href, relative script path, and PWA ta
 // 5. Create 404.html (for GitHub Pages fallback)
 fs.writeFileSync(path.join(distDir, '404.html'), indexHtml);
 console.log('Created 404.html');
+

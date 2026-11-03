@@ -776,185 +776,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
               </View>
             </TouchableOpacity>
 
-            {/* REAL-TIME LIVE TRAIN BOARD & PLATFORM TRACKING BANNER */}
-            <TouchableOpacity
-              style={styles.liveBoardSmartCard}
-              onPress={() => setLiveBoardModalVisible(true)}
-              activeOpacity={0.85}
-            >
-              <View style={styles.liveBoardInner}>
-                <View style={styles.liveBoardIconCol}>
-                  <Text style={{ fontSize: 24 }}>📋</Text>
-                </View>
-                <View style={{ flex: 1, marginLeft: 10 }}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                    <Text style={styles.liveBoardTitle}>
-                      {language === 'kn' ? 'ಲೈವ್ ರೈಲು ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಬೋರ್ಡ್' : (language === 'hi' ? 'लाइव ट्रेन एवं प्लेटफॉर्म बोर्ड' : 'Live Train Board & Platforms')}
-                    </Text>
-                    <View style={styles.liveBadgePulse}>
-                      <Text style={styles.liveBadgePulseText}>● LIVE</Text>
-                    </View>
-                  </View>
-                  <Text style={styles.liveBoardSub}>
-                    {language === 'kn'
-                      ? `${selectedStation?.code || 'SBC'} ನೈಜ ಸಮಯದ ಆಗಮನ, ನಿರ್ಗಮನ ಮತ್ತು ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳು`
-                      : (language === 'hi'
-                        ? `${selectedStation?.code || 'SBC'} वास्तविक समय आगमन, प्रस्थान और प्लेटफॉर्म ट्रैकिंग`
-                        : `Real-time arrivals, departures & platform tracking for ${selectedStation?.code || 'SBC'}`)}
-                  </Text>
-                </View>
-                <Text style={styles.liveBoardArrow}>➔</Text>
-              </View>
-            </TouchableOpacity>
-
-            {/* BOARDINGSURE: PROFILE-AWARE MISSED-TRAIN RISK PREDICTOR */}
-            <TouchableOpacity
-              style={styles.boardingSureCard}
-              onPress={() => setBoardingSureModalVisible(true)}
-              activeOpacity={0.85}
-            >
-              <View style={styles.boardingSureInner}>
-                <View style={styles.boardingSureIconCol}>
-                  <Text style={{ fontSize: 24 }}>🛡️</Text>
-                </View>
-                <View style={{ flex: 1, marginLeft: 10 }}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                    <Text style={styles.boardingSureTitle}>
-                      {language === 'kn' ? 'ಬೋರ್ಡಿಂಗ್‌ಶ್ಯೂರ್ — ರೈಲು ಮುಟ್ಟುವ ಸಮಯ ಮುನ್ಸೂಚಕ' : (language === 'hi' ? 'BoardingSure — ट्रेन छूटने का जोखिम विश्लेषक' : 'BoardingSure — Missed-Train Risk Predictor')}
-                    </Text>
-                    <View style={styles.boardingSureBadge}>
-                      <Text style={styles.boardingSureBadgeText}>AI BUDGET</Text>
-                    </View>
-                  </View>
-                  <Text style={styles.boardingSureSub}>
-                    {language === 'kn'
-                      ? 'ನಿಮ್ಮ ಪ್ರವೇಶ್ಯತೆ ಮತ್ತು ವೇಗಕ್ಕೆ ಅನುಗುಣವಾಗಿ ಕೋಚ್ ತಲುಪಲು ಕಾಲಾವಕಾಶವಿದೆಯೇ ತಿಳಿಯಿರಿ'
-                      : (language === 'hi'
-                        ? 'अपनी गति और सुगम्यता प्रोफाइल के अनुसार कोच पहुँचने का समय जानें'
-                        : 'Profile-aware walking budget to your exact train coach before departure')}
-                  </Text>
-                </View>
-                <Text style={styles.boardingSureArrow}>➔</Text>
-              </View>
-            </TouchableOpacity>
-
-            {/* SPECIFICATION 3: PROMINENT LOST PASSENGER RESCUE BUTTON */}
-            <TouchableOpacity
-              style={styles.rescueEmergencyBtn}
-              onPress={() => setRescueModalVisible(true)}
-              activeOpacity={0.85}
-            >
-              <View style={styles.rescueEmergencyInner}>
-                <Text style={styles.rescueEmergencyIcon}>🚨</Text>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.rescueEmergencyTitle}>
-                    {language === 'kn' ? 'ನಾನು ದಾರಿ ತಪ್ಪಿದ್ದೇನೆ - ರಕ್ಷಣೆ' : (language === 'hi' ? 'मैं भटक गया हूँ - सहायता' : "I'M LOST - RESCUE ME")}
-                  </Text>
-                  <Text style={styles.rescueEmergencySub}>
-                    {language === 'kn' ? 'ತತ್ಕ್ಷಣ ಸ್ಥಳ ಸ್ಕ್ಯಾನ್ ಮತ್ತು ಸುರಕ್ಷಿತ ಮಾರ್ಗ' : (language === 'hi' ? 'तुरंत स्थान पहचान एवं सुरक्षित मार्ग' : 'Instant location scan & 1-tap rescue path')}
-                  </Text>
-                </View>
-                <Text style={styles.rescueEmergencyArrow}>➔</Text>
-              </View>
-            </TouchableOpacity>
-
-            {/* HACKATHON PITCH HIGHLIGHT: AR / VR SPATIAL STATION NAVIGATOR */}
-            <TouchableOpacity
-              style={styles.arVrPitchCard}
-              onPress={() => setArVrModalVisible(true)}
-              activeOpacity={0.85}
-            >
-              <View style={styles.arVrPitchInner}>
-                <View style={styles.arVrIconCol}>
-                  <Text style={{ fontSize: 24 }}>🥽</Text>
-                </View>
-                <View style={{ flex: 1, marginLeft: 10 }}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                    <Text style={styles.arVrPitchTitle}>
-                      {language === 'kn' ? 'ಎಆರ್ / ವಿಆರ್ ಸ್ಪೇಷಿಯಲ್ ನ್ಯಾವಿಗೇಟರ್' : (language === 'hi' ? 'AR / VR 3D स्टेशन नेविगेशन' : 'AR / VR Spatial Station Navigator')}
-                    </Text>
-                    <View style={styles.arVrPitchBadge}>
-                      <Text style={styles.arVrPitchBadgeText}>HACKATHON 3D</Text>
-                    </View>
-                  </View>
-                  <Text style={styles.arVrPitchSub}>
-                    {language === 'kn'
-                      ? '360° ವಿಆರ್ ವ್ಯೂ ಮತ್ತು ಕ್ಯಾಮೆರಾ ಎಆರ್ ಮಾರ್ಗದರ್ಶನ'
-                      : (language === 'hi'
-                        ? '360° वीआर और संवर्धित वास्तविकता (AR) कैमरा नेविगेशन'
-                        : '360° immersive VR concourse tour & camera AR floating wayfinding')}
-                  </Text>
-                </View>
-                <Text style={styles.arVrPitchArrow}>➔</Text>
-              </View>
-            </TouchableOpacity>
-
-            {/* SMART SPATIAL ACTIONS ROW: COACH NAVIGATION & TRUTH ENGINE */}
-            {/* DOWNLOAD MOBILE APP CALL-TO-ACTION CARD */}
-            <TouchableOpacity
-              style={styles.downloadMobileAppCard}
-              onPress={() => setDownloadModalVisible(true)}
-              activeOpacity={0.85}
-            >
-              <View style={styles.downloadMobileAppInner}>
-                <View style={styles.downloadIconCol}>
-                  <Text style={{ fontSize: 24 }}>📲</Text>
-                </View>
-                <View style={{ flex: 1, marginLeft: 10 }}>
-                  <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
-                    <Text style={styles.downloadMobileAppTitle}>
-                      {language === 'kn' ? 'ಮೊಬೈಲ್ ಆ್ಯಪ್ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ' : (language === 'hi' ? 'टर्न वाइज मोबाइल ऐप डाउनलोड करें' : 'Download Turn Wise Mobile App')}
-                    </Text>
-                    <View style={styles.downloadMobileAppBadge}>
-                      <Text style={styles.downloadMobileAppBadgeText}>APK / PWA</Text>
-                    </View>
-                  </View>
-                  <Text style={styles.downloadMobileAppSub}>
-                    {language === 'kn'
-                      ? 'ನಿಮ್ಮ ಫೋನ್‌ನಲ್ಲಿ ಸ್ಥಾಪಿಸಿ • ಆಂಡ್ರಾಯ್ಡ್ APK & ಐಫೋನ್ ಬೆಂಬಲ'
-                      : (language === 'hi'
-                        ? 'फोन में इंस्टॉल करें • एंड्रॉइड APK एवं आईफोन सपोर्ट'
-                        : 'Install on your phone • Direct Android APK & 1-tap iPhone install')}
-                  </Text>
-                </View>
-                <Text style={styles.downloadMobileAppArrow}>➔</Text>
-              </View>
-            </TouchableOpacity>
-
-            <View style={styles.smartActionsRow}>
-              <TouchableOpacity
-                style={styles.smartActionCard}
-                onPress={() => setCoachModalVisible(true)}
-                activeOpacity={0.85}
-              >
-                <Text style={styles.smartActionIcon}>🚆</Text>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.smartActionTitle}>
-                    {language === 'kn' ? 'ಕೋಚ್ ಮಾರ್ಗದರ್ಶನ' : (language === 'hi' ? 'ट्रेन एवं कोच' : 'Train & Coach')}
-                  </Text>
-                  <Text style={styles.smartActionSub}>
-                    {language === 'kn' ? 'ಕೋಚ್ B4 ಸ್ಥಳ ಹುಡುಕಿ' : (language === 'hi' ? 'कोच B4 बोर्डिंग स्पॉट' : 'Locate Coach Boarding')}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-
-              <TouchableOpacity
-                style={styles.smartActionCard}
-                onPress={() => setTruthModalVisible(true)}
-                activeOpacity={0.85}
-              >
-                <Text style={styles.smartActionIcon}>🛡️</Text>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.smartActionTitle}>
-                    {language === 'kn' ? 'ಪ್ರವೇಶ್ಯತಾ ಸ್ಥಿತಿ' : (language === 'hi' ? 'सुगम्यता स्थिति' : 'Truth Engine')}
-                  </Text>
-                  <Text style={styles.smartActionSub}>
-                    {language === 'kn' ? 'ಸೌಲಭ್ಯ ಸ್ಥಿತಿ & ವರದಿ' : (language === 'hi' ? 'समस्या रिपोर्ट करें' : 'Amenity Status & Report')}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-
             {/* Card 1: Journey Planner */}
             <View style={styles.sectionCard}>
               <View style={styles.sectionHeaderRow}>
@@ -1080,6 +901,113 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
             {/* Essential Amenities Bar */}
             <View style={styles.sectionCard}>
               <QuickActionBadges onSelectAction={handleQuickAction} />
+            </View>
+
+            
+            {/* SMART ASSISTIVE STATION UTILITIES (CLEAN 2-COLUMN TILES) */}
+            <View style={{ marginTop: 4, marginBottom: 16 }}>
+              <Text style={{ fontSize: 11, fontWeight: '800', color: '#64748B', letterSpacing: 0.6, marginBottom: 8, paddingHorizontal: 4 }}>
+                {language === 'kn' ? 'ಸ್ಮಾರ್ಟ್ ನಿಲ್ದಾಣ ಸೌಲಭ್ಯಗಳು' : (language === 'hi' ? 'स्मार्ट स्टेशन सुविधाएं' : 'SMART STATION UTILITIES')}
+              </Text>
+
+              {/* Row 1: Live Train Board & BoardingSure */}
+              <View style={styles.smartActionsRow}>
+                <TouchableOpacity
+                  style={styles.smartActionCard}
+                  onPress={() => setLiveBoardModalVisible(true)}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.smartActionIcon}>📋</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.smartActionTitle}>
+                      {language === 'kn' ? 'ಲೈವ್ ರೈಲು ಬೋರ್ಡ್' : (language === 'hi' ? 'लाइव ट्रेन बोर्ड' : 'Live Train Board')}
+                    </Text>
+                    <Text style={styles.smartActionSub}>
+                      {selectedStation?.code || 'SBC'} • Real-Time
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.smartActionCard}
+                  onPress={() => setBoardingSureModalVisible(true)}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.smartActionIcon}>🛡️</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.smartActionTitle}>BoardingSure AI</Text>
+                    <Text style={styles.smartActionSub}>
+                      {language === 'kn' ? 'ರೈಲು ಮುಟ್ಟುವ ಸಮಯ' : (language === 'hi' ? 'छूटने का जोखिम' : 'Missed-Train Risk')}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              {/* Row 2: AR / VR 3D View & Coach Navigation */}
+              <View style={styles.smartActionsRow}>
+                <TouchableOpacity
+                  style={styles.smartActionCard}
+                  onPress={() => setArVrModalVisible(true)}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.smartActionIcon}>🥽</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.smartActionTitle}>AR / VR 3D View</Text>
+                    <Text style={styles.smartActionSub}>
+                      {language === 'kn' ? '360° ವರ್ಚುವಲ್' : (language === 'hi' ? '360° वर्चुअल' : '360° Concourse')}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.smartActionCard}
+                  onPress={() => setCoachModalVisible(true)}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.smartActionIcon}>🚆</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.smartActionTitle}>
+                      {language === 'kn' ? 'ಕೋಚ್ ಮಾರ್ಗದರ್ಶನ' : (language === 'hi' ? 'कोच बोर्डिंग' : 'Coach Finder')}
+                    </Text>
+                    <Text style={styles.smartActionSub}>
+                      {language === 'kn' ? 'ನಿಖರ ಸ್ಥಳ' : (language === 'hi' ? 'सटीक स्थान' : 'Boarding Spots')}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+
+              {/* Row 3: Lost Passenger Rescue & Truth Engine */}
+              <View style={styles.smartActionsRow}>
+                <TouchableOpacity
+                  style={[styles.smartActionCard, { backgroundColor: '#FEF2F2', borderColor: '#FECACA' }]}
+                  onPress={() => setRescueModalVisible(true)}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.smartActionIcon}>🚨</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={[styles.smartActionTitle, { color: '#B91C1C' }]}>
+                      {language === 'kn' ? 'ರಕ್ಷಣೆ' : (language === 'hi' ? 'सहायता' : "I'm Lost - Rescue")}
+                    </Text>
+                    <Text style={[styles.smartActionSub, { color: '#DC2626' }]}>
+                      {language === 'kn' ? 'ತತ್ಕ್ಷಣ ಮಾರ್ಗ' : (language === 'hi' ? 'तुरंत सहायता' : '1-Tap Help Path')}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.smartActionCard}
+                  onPress={() => setTruthModalVisible(true)}
+                  activeOpacity={0.85}
+                >
+                  <Text style={styles.smartActionIcon}>⚙️</Text>
+                  <View style={{ flex: 1 }}>
+                    <Text style={styles.smartActionTitle}>Truth Engine</Text>
+                    <Text style={styles.smartActionSub}>
+                      {language === 'kn' ? 'ಸೌಲಭ್ಯ ಸ್ಥಿತಿ' : (language === 'hi' ? 'सुविधा स्थिति' : 'Amenity Status')}
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
 
